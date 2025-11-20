@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Health Gaming – Track. Level Up. Repeat.</title>
+  <meta name="description" content="Health Gaming – Ziele setzen, Aktivitäten loggen, XP verdienen und deine Gewohnheiten gamifizieren." />
+  <meta name="color-scheme" content="dark light" />
+  <meta property="og:title" content="Health Gaming – Track. Level Up. Repeat." />
+  <meta property="og:description" content="Ziele, XP, Streaks & Quests. Mach deine Gesundheit zum Game." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://dein-domainname.tld/" />
+  <style>
+    :root{
+      --bg:#0b0f14;
+      --card:#111620;
+      --muted:#98a2b3;
+      --text:#e6e9ef;
+      --purple:#8b5cf6;
+      --teal:#22d3ee;
+      --ring:rgba(139,92,246,.35);
+      --radius:18px;
+      --max:1200px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;background:
+      radial-gradient(1200px 800px at 15% -10%,rgba(34,211,238,.08),transparent 60%),
+      radial-gradient(900px 700px at 120% 0,rgba(139,92,246,.10),transparent 60%),
+      var(--bg);
+      color:var(--text);
+      font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial}
+    a{color:var(--teal);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
+    header{position:sticky;top:0;background:rgba(11,15,20,.7);backdrop-filter:blur(8px);
+      border-bottom:1px solid #1b2330;z-index:20}
+    nav{display:flex;align-items:center;gap:14px;height:64px}
+    .logo{display:flex;align-items:center;gap:10px;font-weight:700}
+    .dot{width:12px;height:12px;border-radius:50%;
+      background:linear-gradient(135deg,var(--teal),var(--purple));
+      box-shadow:0 0 0 4px var(--ring)}
+    .navlinks{margin-left:auto;display:flex;gap:18px}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:12px;
+      background:#0f1520;border:1px solid #263044;color:var(--text)}
+    .btn.primary{background:linear-gradient(135deg,rgba(34,211,238,.15),rgba(139,92,246,.15));
+      border-color:#2b3750;box-shadow:0 0 0 3px var(--ring)}
+    .hero{padding:64px 0 28px}
+    .hero h1{font-size:clamp(2rem,5vw,3.25rem);line-height:1.1;margin:0}
+    .sub{color:var(--muted);max-width:760px;margin-top:12px}
+    .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+    .badges{display:flex;gap:10px;flex-wrap:wrap}
+    .badge{height:44px;padding:0 14px;border-radius:12px;border:1px dashed #2b3750;
+      display:inline-flex;align-items:center;color:var(--muted)}
+    /* Sections */
+    .section{padding:40px 0}
+    .grid{display:grid;gap:18px}
+    .features{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+    .card{background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.01));
+      border:1px solid #1b2330;border-radius:var(--radius);padding:20px;
+      box-shadow:0 10px 40px rgba(0,0,0,.35)}
+    .card h3{margin:0 0 6px}
+    .muted{color:var(--muted)}
+    .ring{box-shadow:0 0 0 3px var(--ring)}
+    /* Pricing */
+    .pricing{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+    .price{display:flex;align-items:baseline;gap:8px;margin:6px 0 14px}
+    .price strong{font-size:1.8rem}
+    .tag{display:inline-flex;align-items:center;gap:6px;font-size:.85rem;
+      padding:6px 10px;border-radius:999px;border:1px solid #263044;background:#0f1520;color:var(--muted)}
+    ul{margin:0;padding-left:18px}
+    footer{margin-top:30px;border-top:1px solid #1b2330}
+    .foot{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center;padding:18px 0;color:var(--muted);font-size:.95rem}
+    .links{display:flex;gap:14px;flex-wrap:wrap}
+    .pill{display:inline-flex;gap:8px;align-items:center;padding:8px 12px;border-radius:999px;background:#101726;border:1px solid #223046}
+    @media (prefers-color-scheme:light){
+      :root{--bg:#f7f8fb;--card:#ffffff;--text:#0b1220;--muted:#667085}
+      header{background:#fff;border-color:#e6e9ef}
+      .card{background:#fff;border-color:#eef1f5}
+      .btn{background:#fff;border-color:#dfe3ea}
+      .btn.primary{background:#f1f6ff}
+      .badge{border-color:#dfe3ea}
+      footer{border-color:#e6e9ef}
+    }
+  </style>
+</head>
+<body>
+  <!-- NAV -->
+  <header>
+    <div class="wrap">
+      <nav>
+        <div class="logo"><span class="dot"></span><span>Health&nbsp;Gaming</span></div>
+        <div class="navlinks">
+          <a class="btn" href="#features">Features</a>
+          <a class="btn" href="#pricing">Preise</a>
+          <a class="btn" href="#download">Download</a>
+          <a class="btn primary" href="privacy.html">Datenschutz</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="card ring" style="padding:28px">
+        <h1>Track. Level Up. Repeat.</h1>
+        <p class="sub">
+          Logge Schritte, Schlaf, Wasser &amp; Workouts manuell, sammle XP und schalte Achievements frei.
+          Kein Konto, keine Cloud – <strong>alles lokal</strong>. Später erweiterbar um Abo &amp; Ads.
+        </p>
+        <div class="cta">
+          <a class="btn primary" href="#download">App holen</a>
+          <a class="btn" href="terms.html">Nutzungsbedingungen</a>
+        </div>
+        <div class="badges" style="margin-top:14px">
+          <a class="badge" href="#" title="Google Play (bald)">
+            <span>📱</span><span>Google&nbsp;Play – bald</span>
+          </a>
+          <a class="badge" href="#" title="App Store (bald)">
+            <span>🍎</span><span>App&nbsp;Store – bald</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section id="features" class="section">
+    <div class="wrap">
+      <h2 style="margin:0 0 14px">Features</h2>
+      <div class="grid features">
+        <div class="card">
+          <h3>🎯 Ziele &amp; XP</h3>
+          <p class="muted">Setze tägliche Ziele. Jede Aktivität gibt XP. Dein Fortschritt als Game.</p>
+        </div>
+        <div class="card">
+          <h3>📝 Manuelles Tracking</h3>
+          <p class="muted">Ohne Sensoren: Wähle Aktivität, Menge &amp; Einheit – fertig.</p>
+        </div>
+        <div class="card">
+          <h3>🏅 Achievements</h3>
+          <p class="muted">Streaks, tägliche Quests und Meilensteine motivieren dich langfristig.</p>
+        </div>
+        <div class="card">
+          <h3>📱 Lokal &amp; Privat</h3>
+          <p class="muted">Daten bleiben auf deinem Gerät (SharedPreferences/Local Storage).</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="pricing" class="section">
+    <div class="wrap">
+      <h2 style="margin:0 0 14px">Preise</h2>
+      <div class="grid pricing">
+        <div class="card">
+          <span class="tag">FREE</span>
+          <div class="price"><strong>€0</strong><span class="muted">/Monat</span></div>
+          <ul class="muted">
+            <li>Kernfunktionen</li>
+            <li>Achievements</li>
+            <li>History &amp; Insights gesperrt</li>
+          </ul>
+        </div>
+        <div class="card ring">
+          <span class="tag">LITE</span>
+          <div class="price"><strong>€1,99</strong><span class="muted">/Monat</span></div>
+          <ul class="muted">
+            <li>Werbefrei (falls aktiv)</li>
+            <li>Achievements</li>
+            <li>History weiterhin gesperrt</li>
+          </ul>
+        </div>
+        <div class="card">
+          <span class="tag">PRO</span>
+          <div class="price"><strong>€3,99</strong><span class="muted">/Monat</span></div>
+          <ul class="muted">
+            <li>Werbefrei (falls aktiv)</li>
+            <li>Alle Features inkl. History &amp; Insights</li>
+            <li>Priorisierte Updates</li>
+          </ul>
+        </div>
+      </div>
+      <p class="muted" style="margin-top:10px">Preise &amp; Leistungen können sich entwickeln; Abrechnung über App-Stores.</p>
+    </div>
+  </section>
+
+  <!-- DOWNLOAD -->
+  <section id="download" class="section">
+    <div class="wrap">
+      <h2 style="margin:0 0 14px">Download</h2>
+      <div class="card" style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between">
+        <p class="muted" style="margin:0">Sobald die App live ist, findest du hier die Store-Links.</p>
+        <div class="badges">
+          <a class="badge" href="#">📱 Google Play (bald)</a>
+          <a class="badge" href="#">🍎 App Store (bald)</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="wrap foot">
+      <div class="pill">
+        <span class="dot" style="width:10px;height:10px"></span>
+        <span>© <span id="year"></span> Health&nbsp;Gaming</span>
+      </div>
+      <div class="links">
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="imprint.html">Impressum</a>
+        <a href="mailto:hello@example.com">Kontakt</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
