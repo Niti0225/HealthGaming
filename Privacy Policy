@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Privacy Policy • Health Gaming App</title>
+  <meta name="color-scheme" content="dark light" />
+  <style>
+    :root{
+      --bg:#0b0f14; --card:#111620; --muted:#98a2b3; --text:#e6e9ef;
+      --purple:#8b5cf6; --teal:#22d3ee; --ring:rgba(34,211,238,.35);
+      --radius:18px; --max:860px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;background:
+      radial-gradient(1200px 800px at -10% 0,rgba(139,92,246,.10),transparent 60%),
+      radial-gradient(900px 700px at 110% 20%,rgba(34,211,238,.08),transparent 60%),
+      var(--bg);color:var(--text);
+      font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial}
+    a{color:var(--purple);text-decoration:none} a:hover{text-decoration:underline}
+    header{position:sticky;top:0;background:rgba(11,15,20,.7);backdrop-filter:blur(8px);border-bottom:1px solid #1b2330;z-index:10}
+    .wrap{max-width:var(--max);margin:0 auto;padding:18px 20px}
+    .brand{display:flex;gap:12px;align-items:center}
+    .gem{width:10px;height:10px;border-radius:50%;
+      background:linear-gradient(135deg,var(--purple),var(--teal));box-shadow:0 0 0 4px var(--ring)}
+    h1{font-size:1.75rem;margin:0}
+    .lang{display:flex;gap:8px;margin-left:auto}
+    .lang button{background:#0f1520;border:1px solid #263044;color:var(--text);padding:8px 10px;border-radius:10px;cursor:pointer}
+    .lang button.active{border-color:var(--teal);box-shadow:0 0 0 3px var(--ring)}
+    main{max-width:var(--max);margin:30px auto;padding:0 20px}
+    .card{background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.01));
+      border:1px solid #1b2330;border-radius:var(--radius);padding:24px;box-shadow:0 10px 40px rgba(0,0,0,.35)}
+    h2{font-size:1.25rem;margin-top:26px}
+    .muted{color:var(--muted)}
+    .toc{display:flex;flex-wrap:wrap;gap:10px;margin:12px 0 4px}
+    .toc a{background:#0f1520;border:1px solid #222b3a;padding:6px 10px;border-radius:999px;font-size:.9rem}
+    footer{max-width:var(--max);margin:40px auto 24px;padding:0 20px;color:var(--muted);font-size:.9rem}
+    @media (prefers-color-scheme:light){
+      :root{--bg:#f7f8fb;--card:#ffffff;--text:#0b1220;--muted:#667085}
+      header{background:#fff;border-color:#e6e9ef}
+      .card{background:#fff;border-color:#eef1f5}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap" style="display:flex;align-items:center;gap:12px">
+      <span class="gem"></span>
+      <div>
+        <div style="opacity:.8">Health Gaming • Legal</div>
+        <h1>Privacy Policy</h1>
+      </div>
+      <div class="lang">
+        <button id="btn-de" class="active" onclick="setLang('de')">DE</button>
+        <button id="btn-en" onclick="setLang('en')">EN</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <nav class="card">
+      <div class="muted">Schnellnavigation</div>
+      <div class="toc">
+        <a href="#p1">1. Verantwortlicher / Controller</a>
+        <a href="#p2">2. Überblick</a>
+        <a href="#p3">3. Datenkategorien</a>
+        <a href="#p4">4. Zwecke & Rechtsgrundlagen</a>
+        <a href="#p5">5. Speicherung</a>
+        <a href="#p6">6. Empfänger</a>
+        <a href="#p7">7. Rechte</a>
+        <a href="#p8">8. Minderjährige</a>
+        <a href="#p9">9. Sicherheit</a>
+        <a href="#p10">10. Änderungen</a>
+        <a href="#p11">11. Kontakt</a>
+      </div>
+    </nav>
+
+    <!-- DE -->
+    <article id="de" class="card" lang="de">
+      <p class="muted">Stand: 08.11.2025</p>
+      <h2 id="p1">Datenschutzerklärung</h2>
+      <p><strong>1. Verantwortlicher (Art. 4 Nr. 7 DSGVO)</strong><br>
+      <em>[NAME / FIRMA], [STRAßE + NR], [PLZ ORT], Deutschland – E-Mail: [E-MAIL] – Vertretungsberechtigt: [PERSON]</em></p>
+
+      <p id="p2"><strong>2. Überblick</strong><br>
+      App ohne Konto; Gesundheits-/Aktivitätsdaten werden <strong>lokal</strong> gespeichert; aktuell keine Serverübertragung/kein Tracking. Abostatus lokal als Flag.</p>
+
+      <p id="p3"><strong>3. Datenkategorien</strong><br>
+      App-Nutzungsdaten (Ziele, Tageswerte, Aufgaben, XP/Level, Streaks, Achievements); Abo-Flags (free/lite/pro, Rechte, Ads-Flag); optionale Benachrichtigungen; keine aktiven Sensoren.</p>
+
+      <p id="p4"><strong>4. Zwecke &amp; Rechtsgrundlagen</strong><br>
+      (a) App-Funktion Art. 6 (1)(b) DSGVO; (b) Einwilligung Art. 6 (1)(a) (z. B. Notifications); (c) berechtigte Interessen Art. 6 (1)(f) (Sicherheit/Fehlerbehebung lokal).</p>
+
+      <p id="p5"><strong>5. Speicherung / Dauer</strong> – lokal bis Deinstallation/Reset.</p>
+
+      <p id="p6"><strong>6. Empfänger / Drittländer</strong> – keine; bei späterer Integration (z. B. Firebase/Analytics/Ads) vorherige Info und ggf. Einwilligung.</p>
+
+      <p id="p7"><strong>7. Betroffenenrechte</strong> – Auskunft, Berichtigung, Löschung, Einschränkung, Übertragbarkeit, Widerspruch; Widerruf von Einwilligungen; Beschwerde bei der Aufsicht möglich.</p>
+
+      <p id="p8"><strong>8. Minderjährige</strong> – nicht für Kinder unter 16.</p>
+
+      <p id="p9"><strong>9. Sicherheit</strong> – Daten bleiben lokal; Geräteschutz empfohlen (PIN/Biometrie/Updates).</p>
+
+      <p id="p10"><strong>10. Änderungen</strong> – Anpassungen bei Funktions-/Rechtsänderungen.</p>
+
+      <p id="p11"><strong>11. Kontakt</strong> – <em>[NAME / FIRMA], [STRAßE + NR], [PLZ ORT], E-Mail: [E-MAIL]</em></p>
+    </article>
+
+    <!-- EN -->
+    <article id="en" class="card" lang="en" style="display:none">
+      <p class="muted">Effective: 08 Nov 2025</p>
+      <h2 id="p1-en">Privacy Policy</h2>
+      <p><strong>1. Controller</strong> – <em>[NAME / COMPANY], [STREET + NO], [ZIP CITY], Germany, [EMAIL]</em></p>
+      <p><strong>2. Overview</strong> – Works without account; data stored <strong>locally</strong>; no server transfer or tracking; subscription flag stored locally.</p>
+      <p><strong>3. Categories of Data</strong> – Usage data (goals, daily values, tasks, XP/level, streaks, achievements); subscription flags; optional notifications; sensors inactive.</p>
+      <p><strong>4. Purposes &amp; Legal Bases</strong> – Art. 6(1)(b) (functionality); Art. 6(1)(a) (consent e.g. notifications); Art. 6(1)(f) (security/bug fixing locally).</p>
+      <p><strong>5. Storage / Retention</strong> – Local until uninstall/reset.</p>
+      <p><strong>6. Recipients / Third Countries</strong> – None; if services added later, we’ll inform and obtain consent where required.</p>
+      <p><strong>7. Data Subject Rights</strong> – Access, rectification, erasure, restriction, portability, objection; withdraw consent anytime.</p>
+      <p><strong>8. Minors</strong> – Not for children under 16.</p>
+      <p><strong>9. Security</strong> – Local storage; protect your device.</p>
+      <p><strong>10. Changes</strong> – Updated if features/laws change.</p>
+      <p><strong>11. Contact</strong> – <em>[NAME / COMPANY], [STREET + NO], [ZIP CITY], [EMAIL]</em></p>
+    </article>
+  </main>
+
+  <footer class="wrap">
+    <div>© <span id="year"></span> <strong>Health Gaming</strong> • <a href="terms.html">Terms</a> • <a href="imprint.html">Imprint</a></div>
+  </footer>
+
+  <script>
+    const y=document.getElementById('year'); y.textContent=new Date().getFullYear();
+    function setLang(lang){
+      const de=document.getElementById('de'), en=document.getElementById('en');
+      const bde=document.getElementById('btn-de'), ben=document.getElementById('btn-en');
+      if(lang==='de'){de.style.display='block';en.style.display='none';bde.classList.add('active');ben.classList.remove('active')}
+      else{de.style.display='none';en.style.display='block';ben.classList.add('active');bde.classList.remove('active')}
+      window.scrollTo({top:0,behavior:'smooth'});
+    }
+  </script>
+</body>
+</html>
