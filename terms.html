@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Nutzungsbedingungen / Terms of Use – Health Gaming</title>
+  <meta name="description" content="Nutzungsbedingungen / Terms of Use für die App Health Gaming." />
+  <meta name="color-scheme" content="dark light" />
+  <link rel="icon" href="favicon.ico" />
+  <style>
+    :root{
+      --bg:#0b0f14; --surface:#0f1520; --card:#121a27; --text:#e7ebf2; --muted:#a0a8b8; --line:#1e2a3d;
+      --purple:#8b5cf6; --teal:#22d3ee;
+      --chip-bg:transparent; --chip-border:#2a3650; --chip-text:var(--text);
+      --chip-bg-hover:rgba(255,255,255,.04); --chip-border-hover:#395070;
+      --radius:16px; --max:900px; --shadow:0 0 0 1px var(--line);
+      --ring:0 0 0 6px color-mix(in srgb, var(--teal) 22%, transparent);
+    }
+    @media (prefers-color-scheme: light){
+      :root{
+        --bg:#f7f9fc; --surface:#ffffff; --card:#ffffff; --text:#0b1220; --muted:#667085; --line:#e6e9ef;
+        --chip-bg:transparent; --chip-border:#cfd6e4; --chip-text:#0b1220;
+        --chip-bg-hover:#f3f6fb; --chip-border-hover:#b8c3d8;
+        --shadow:0 1px 0 0 var(--line);
+        --ring:0 0 0 6px color-mix(in srgb, var(--teal) 28%, transparent);
+      }
+    }
+    *{box-sizing:border-box} html,body{margin:0;height:100%}
+    body{
+      background:
+        radial-gradient(900px 600px at -10% -20%, color-mix(in srgb, var(--teal) 10%, transparent) 0%, transparent 60%),
+        radial-gradient(800px 500px at 110% 0%, color-mix(in srgb, var(--purple) 12%, transparent) 0%, transparent 60%),
+        var(--bg);
+      color:var(--text); font:16px/1.65 system-ui,-apple-system,Segoe UI,Inter,Roboto,Arial;
+    }
+    a{color:var(--teal);text-decoration:none} a:hover{text-decoration:underline}
+    header{position:sticky; top:0; z-index:10; backdrop-filter:blur(10px);
+      background:color-mix(in srgb, var(--surface) 70%, transparent); border-bottom:1px solid var(--line)}
+    .wrap{max-width:var(--max); margin:0 auto; padding:0 20px}
+    .nav{display:flex; align-items:center; gap:12px; padding:14px 0}
+    .logo{display:flex; align-items:center; gap:10px; font-weight:700}
+    .dot{width:12px;height:12px;border-radius:50%;
+      background:conic-gradient(from 0deg, var(--teal), var(--purple)); box-shadow:var(--ring)}
+    .chip{display:inline-flex; align-items:center; justify-content:center; padding:8px 12px; border-radius:12px;
+      border:1px solid var(--chip-border); background:var(--chip-bg); color:var(--chip-text);
+      transition:background .18s, border-color .18s, transform .06s}
+    .chip:hover{background:var(--chip-bg-hover); border-color:var(--chip-border-hover)} .chip:active{transform:translateY(1px)}
+    .chip--active{border-color:color-mix(in srgb, var(--teal) 55%, var(--chip-border)); box-shadow:0 0 0 2px color-mix(in srgb, var(--teal) 30%, transparent)}
+    main{padding:32px 0}
+    h1{font-size:clamp(1.9rem,3.4vw,2.3rem); margin:0 0 6px}
+    .sub{color:var(--muted); margin:0 0 18px}
+    .card{background:var(--card); border:1px solid var(--line); border-radius:var(--radius); padding:22px; box-shadow:var(--shadow)}
+    h2{font-size:1.05rem; letter-spacing:.02em; margin:20px 0 8px}
+    .muted{color:var(--muted)} .note{margin-top:18px; padding:12px; border:1px dashed var(--chip-border); border-radius:12px; color:var(--muted)}
+    .links-row{margin-top:14px; display:flex; gap:12px; flex-wrap:wrap}
+    .btn{padding:10px 14px; border-radius:12px; border:1px solid var(--chip-border); background:var(--surface); color:var(--chip-text)}
+    .btn:hover{background:var(--chip-bg-hover)}
+    footer{border-top:1px solid var(--line); margin-top:28px}
+    .foot{display:flex; justify-content:space-between; align-items:center; padding:14px 0; color:var(--muted); font-size:.95rem}
+    /* language visibility */
+    [data-i18n]{display:none}
+    .show-de [data-i18n="de"]{display:block}
+    .show-en [data-i18n="en"]{display:block}
+  </style>
+</head>
+<body class="show-de">
+<header>
+  <div class="wrap nav">
+    <div class="logo"><span class="dot"></span> Health&nbsp;Gaming</div>
+    <div style="margin-left:auto; display:flex; gap:8px; flex-wrap:wrap">
+      <a class="chip" href="index.html">Start</a>
+      <a class="chip" href="privacy.html">Privacy</a>
+      <a class="chip chip--active" href="#" aria-current="page">Terms</a>
+      <a class="chip" href="impressum.html">Impressum</a>
+      <button class="chip" id="btn-de" type="button" aria-pressed="true">DE</button>
+      <button class="chip" id="btn-en" type="button" aria-pressed="false">EN</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <h1>Nutzungsbedingungen / Terms of Use</h1>
+    <p class="sub"><span id="date">08.11.2025</span></p>
+
+    <section class="card" data-i18n="de">
+      <h2>Nutzungsbedingungen (Terms of Use)</h2>
+      <p class="muted"><strong>Anbieter</strong>: [NAME / FIRMA], [STRAßE + NR], [PLZ ORT], E-Mail:
+        <a href="mailto:[E-MAIL]">[E-MAIL]</a></p>
+
+      <h2>Kein medizinischer Rat</h2>
+      <p class="muted">Gamification-/Motivations-Tool; keine medizinische Beratung/Diagnose/Behandlung.</p>
+
+      <h2>Funktionsumfang &amp; Kontolos</h2>
+      <p class="muted">Ziele/Aktivitäten lokal speichern; kein Konto, keine Cloud-Synchronisation derzeit.</p>
+
+      <h2>Abomodelle und Leistungen</h2>
+      <ul class="muted">
+        <li><strong>FREE:</strong> Basisfunktionen; Achievements frei; History/Insights gesperrt; Werbung technisch möglich.</li>
+        <li><strong>LITE (€1,99/Monat):</strong> Keine Werbung (falls später aktiv), Achievements frei; History gesperrt.</li>
+        <li><strong>PRO (€3,99/Monat):</strong> Keine Werbung (falls später aktiv), voller Zugang inkl. History &amp; Insights.</li>
+      </ul>
+      <p class="muted">Käufe ggf. über App-Stores; deren Bedingungen gelten.</p>
+
+      <h2>Abrechnung, Verlängerung, Kündigung</h2>
+      <p class="muted">Abos verlängern sich automatisch bis zur Kündigung im Store; Erstattungen nach Store-Regeln/ Gesetz.</p>
+
+      <h2>Benutzerverhalten / Verbotene Handlungen</h2>
+      <ul class="muted">
+        <li>rechtswidrige Inhalte</li><li>Eingriffe in Sicherheit/Funktion</li><li>unzulässiges Reverse Engineering</li>
+        <li>automatisiertes Auslesen</li><li>Rechtsverletzungen Dritter</li>
+      </ul>
+
+      <h2>Verfügbarkeit &amp; Änderungen</h2>
+      <p class="muted">Wartungen/Updates möglich; Funktionen können angepasst werden, soweit zumutbar.</p>
+
+      <h2>Haftung</h2>
+      <p class="muted">Unbeschränkt bei Vorsatz/grober Fahrlässigkeit; sonst begrenzt auf typische Schäden bei Kardinalpflichten;
+        Leben/Körper/Gesundheit unberührt.</p>
+
+      <h2>Gewährleistung</h2>
+      <p class="muted">Gesetzliche Gewährleistungsrechte.</p>
+
+      <h2>Laufzeit &amp; Kündigung</h2>
+      <p class="muted">Nutzung jederzeit beendbar (Deinstallation). Bei Verstößen Einschränkung/Beendigung möglich.</p>
+
+      <h2>Recht, Streitbeilegung</h2>
+      <p class="muted">Deutsches Recht (ohne UN-Kaufrecht). EU-ODR: <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener">https://ec.europa.eu/consumers/odr/</a>. Keine Teilnahmeverpflichtung an Schlichtung.</p>
+
+      <h2>Änderungen</h2>
+      <p class="muted">Anpassungen aus sachlichem Grund möglich; wesentliche Änderungen kommunizieren wir in der App.</p>
+
+      <h2>Kontakt</h2>
+      <p class="muted"><strong>[NAME / FIRMA]</strong> – [STRAßE + NR], [PLZ ORT], E-Mail: <a href="mailto:[E-MAIL]">[E-MAIL]</a></p>
+
+      <div class="links-row">
+        <a class="btn" href="privacy.html">Datenschutz</a>
+        <a class="btn" href="impressum.html">Impressum</a>
+      </div>
+
+      <div class="note">Hinweis: Store-Käufe unterliegen zusätzlich den Bedingungen des jeweiligen App-Stores.</div>
+    </section>
+
+    <section class="card" data-i18n="en">
+      <h2>Terms of Use</h2>
+      <p class="muted"><strong>Provider</strong>: [NAME / COMPANY], [STREET + NO], [ZIP CITY], email:
+        <a href="mailto:[EMAIL]">[EMAIL]</a></p>
+
+      <h2>No Medical Advice</h2>
+      <p class="muted">Gamification/motivation tool; not medical advice, diagnosis, or treatment.</p>
+
+      <h2>Features &amp; No Account</h2>
+      <p class="muted">Goals/activities stored locally; no user account; no cloud sync currently.</p>
+
+      <h2>Subscription Plans and Services</h2>
+      <ul class="muted">
+        <li><strong>FREE:</strong> Core features; achievements unlocked; history/insights locked; ads may be technically possible.</li>
+        <li><strong>LITE (€1.99/month):</strong> No ads (if enabled later), achievements unlocked; history remains locked.</li>
+        <li><strong>PRO (€3.99/month):</strong> No ads (if enabled later), full access incl. history &amp; insights.</li>
+      </ul>
+      <p class="muted">Purchases may be processed by app stores; their terms apply.</p>
+
+      <h2>Billing, Renewal, Cancellation</h2>
+      <p class="muted">Auto-renew until you cancel in the store; refunds per store rules/statutory rights.</p>
+
+      <h2>Acceptable Use</h2>
+      <ul class="muted">
+        <li>illegal content</li><li>tampering with security/functionality</li><li>reverse engineering beyond legal allowances</li>
+        <li>automated scraping</li><li>infringement of third-party rights</li>
+      </ul>
+
+      <h2>Availability &amp; Changes</h2>
+      <p class="muted">Maintenance/updates may affect availability; features may change where reasonable.</p>
+
+      <h2>Liability</h2>
+      <p class="muted">Unlimited for intent/gross negligence; otherwise limited to typical foreseeable damage for essential duties;
+        life/body/health liability unaffected.</p>
+
+      <h2>Warranty</h2>
+      <p class="muted">Statutory warranty rights apply.</p>
+
+      <h2>Term &amp; Termination</h2>
+      <p class="muted">You can stop use anytime (uninstall). We may restrict/terminate for violations.</p>
+
+      <h2>Governing Law, Dispute Resolution</h2>
+      <p class="muted">German law (CISG excluded). EU ODR:
+        <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener">https://ec.europa.eu/consumers/odr/</a>.
+        We are not obliged and generally not willing to participate in consumer arbitration.</p>
+
+      <h2>Changes</h2>
+      <p class="muted">We may update these Terms for good cause (e.g., legal changes, new features) where reasonable.</p>
+
+      <h2>Contact</h2>
+      <p class="muted"><strong>[NAME / COMPANY]</strong> – [STREET + NO], [ZIP CITY], email: <a href="mailto:[EMAIL]">[EMAIL]</a></p>
+
+      <div class="links-row">
+        <a class="btn" href="privacy.html">Privacy Policy</a>
+        <a class="btn" href="impressum.html">Imprint</a>
+      </div>
+
+      <div class="note">Note: Store purchases are subject to the relevant app store’s terms.</div>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div>© <span id="year"></span> Health Gaming</div>
+    <div><a href="impressum.html">Imprint</a> · <a href="privacy.html">Privacy</a> · <a href="index.html">Start</a></div>
+  </div>
+</footer>
+
+<script>
+  const html = document.documentElement;
+  const body = document.body;
+  const deBtn = document.getElementById('btn-de');
+  const enBtn = document.getElementById('btn-en');
+
+  function setLang(lang){
+    if (lang === 'en'){ body.classList.remove('show-de'); body.classList.add('show-en'); html.lang='en';
+      deBtn.classList.remove('chip--active'); deBtn.setAttribute('aria-pressed','false');
+      enBtn.classList.add('chip--active');    enBtn.setAttribute('aria-pressed','true');
+    } else { body.classList.remove('show-en'); body.classList.add('show-de'); html.lang='de';
+      enBtn.classList.remove('chip--active'); enBtn.setAttribute('aria-pressed','false');
+      deBtn.classList.add('chip--active');    deBtn.setAttribute('aria-pressed','true');
+    }
+    localStorage.setItem('hg_lang', lang);
+  }
+  deBtn.addEventListener('click', () => setLang('de'));
+  enBtn.addEventListener('click', () => setLang('en'));
+
+  // init
+  document.getElementById('year').textContent = new Date().getFullYear();
+  const saved = localStorage.getItem('hg_lang');
+  if (saved) setLang(saved);
+</script>
+</body>
+</html>
