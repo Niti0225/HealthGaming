@@ -4,217 +4,243 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Impressum – Health Gaming</title>
-  <meta name="description" content="Impressum / Imprint der Health Gaming App." />
+  <meta name="description" content="Impressum für die App Health Gaming – Level Up Your Life." />
   <meta name="color-scheme" content="dark light" />
   <link rel="icon" href="favicon.ico" />
   <style>
+    /* ======= Design Tokens ======= */
     :root{
-      --bg:#0b0f14; --card:#111620; --text:#e6e9ef; --muted:#98a2b3; --line:#1b2330;
-      --purple:#8b5cf6; --teal:#22d3ee; --ring:rgba(139,92,246,.35); --radius:18px; --max:900px;
+      /* dark default */
+      --bg:#0b0f14;
+      --surface:#0f1520;
+      --card:#121a27;
+      --text:#e7ebf2;
+      --muted:#a0a8b8;
+      --line:#1e2a3d;
+
+      --purple:#8b5cf6;
+      --teal:#22d3ee;
+
+      --chip-bg: transparent;          /* <— Transparenter Button-Hintergrund */
+      --chip-border:#2a3650;
+      --chip-text: var(--text);
+      --chip-bg-hover: rgba(255,255,255,.04);
+      --chip-border-hover:#395070;
+
+      --radius:16px;
+      --max: 900px;
+      --shadow: 0 0 0 1px var(--line);
+      --ring: 0 0 0 6px color-mix(in srgb, var(--teal) 22%, transparent);
     }
+    @media (prefers-color-scheme: light){
+      :root{
+        --bg:#f7f9fc;
+        --surface:#ffffff;
+        --card:#ffffff;
+        --text:#0b1220;
+        --muted:#667085;
+        --line:#e6e9ef;
+
+        --chip-bg: transparent;        /* <— bleibt transparent */
+        --chip-border:#cfd6e4;
+        --chip-text:#0b1220;
+        --chip-bg-hover:#f3f6fb;
+        --chip-border-hover:#b8c3d8;
+
+        --shadow: 0 1px 0 0 var(--line);
+        --ring: 0 0 0 6px color-mix(in srgb, var(--teal) 28%, transparent);
+      }
+    }
+
+    /* ======= Base ======= */
     *{box-sizing:border-box}
-    html,body{
-      margin:0;
+    html,body{margin:0;height:100%}
+    body{
       background:
-        radial-gradient(1200px 800px at 10% -10%,rgba(34,211,238,.08),transparent 60%),
-        radial-gradient(900px 700px at 110% 20%,rgba(139,92,246,.10),transparent 60%),
+        radial-gradient(900px 600px at -10% -20%, color-mix(in srgb, var(--teal) 10%, transparent) 0%, transparent 60%),
+        radial-gradient(800px 500px at 110% 0%, color-mix(in srgb, var(--purple) 12%, transparent) 0%, transparent 60%),
         var(--bg);
       color:var(--text);
       font:16px/1.65 system-ui,-apple-system,Segoe UI,Inter,Roboto,Arial;
     }
-    a{color:var(--teal);text-decoration:none} a:hover{text-decoration:underline}
-    .wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
+    a{color:var(--teal);text-decoration:none}
+    a:hover{text-decoration:underline}
 
-    header{position:sticky;top:0;background:rgba(11,15,20,.7);backdrop-filter:blur(10px);
-      border-bottom:1px solid var(--line);z-index:10}
-    .nav{display:flex;align-items:center;gap:14px;padding:16px 0}
-    .logo{display:flex;align-items:center;gap:10px;font-weight:700}
+    /* ======= Header / Nav ======= */
+    header{
+      position:sticky; top:0; z-index:10;
+      backdrop-filter: blur(10px);
+      background: color-mix(in srgb, var(--surface) 70%, transparent);
+      border-bottom:1px solid var(--line);
+    }
+    .wrap{max-width:var(--max); margin:0 auto; padding:0 20px}
+    .nav{
+      display:flex; align-items:center; gap:12px; padding:14px 0;
+    }
+    .logo{display:flex; align-items:center; gap:10px; font-weight:700}
     .dot{width:12px;height:12px;border-radius:50%;
-         background:conic-gradient(from 0deg,var(--teal),var(--purple));box-shadow:0 0 0 5px var(--ring)}
-    .navlinks{margin-left:auto;display:flex;gap:16px;align-items:center}
-    .btn{display:inline-flex;gap:8px;align-items:center;border:1px solid #223046;background:#0f1520;
-         padding:8px 12px;border-radius:12px;color:var(--text);font-size:.95rem}
-    .btn:hover{border-color:var(--teal)}
-    .chip{border:1px solid #223046;background:#0f1520;border-radius:999px;padding:6px 10px;
-          color:var(--muted);font-size:.9rem;cursor:pointer}
-    .chip.active{color:var(--text);border-color:var(--teal);box-shadow:0 0 0 3px rgba(34,211,238,.25)}
+      background: conic-gradient(from 0deg, var(--teal), var(--purple));
+      box-shadow: var(--ring);
+    }
 
-    main{padding:36px 0 28px}
-    h1{margin:0 0 6px;font-size:clamp(1.8rem,4vw,2.3rem)}
-    .sub{color:var(--muted);margin:0 0 16px}
-    .card{background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.01));
-          border:1px solid var(--line);border-radius:var(--radius);padding:22px}
-    h2{font-size:1.05rem;margin:18px 0 8px;letter-spacing:.02em}
-    ul{margin:.3rem 0 .8rem 1rem}
-    li{margin:.25rem 0}
+    /* Transparent Chips/Buttons – FIX gegen schwarze Balken */
+    .chip{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:8px 12px; border-radius:12px;
+      border:1px solid var(--chip-border);
+      background: var(--chip-bg);
+      color: var(--chip-text);
+      text-decoration:none; user-select:none;
+      transition: background .18s ease, border-color .18s ease, color .18s ease, transform .06s ease;
+    }
+    .chip:hover{ background:var(--chip-bg-hover); border-color:var(--chip-border-hover) }
+    .chip:active{ transform: translateY(1px) }
+    .chip--active{
+      border-color: color-mix(in srgb, var(--teal) 55%, var(--chip-border));
+      box-shadow: 0 0 0 2px color-mix(in srgb, var(--teal) 30%, transparent);
+    }
+
+    /* ======= Content ======= */
+    main{padding:32px 0}
+    h1{font-size:clamp(1.9rem,3.4vw,2.3rem); margin:0 0 6px}
+    .sub{color:var(--muted); margin:0 0 18px}
+    .card{
+      background: var(--card);
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      padding:22px;
+      box-shadow: var(--shadow);
+    }
+    h2{font-size:1.05rem; letter-spacing:.02em; margin:20px 0 8px}
     .muted{color:var(--muted)}
+    .kachel{display:grid; gap:8px}
 
-    .legal-links{margin-top:16px;display:flex;flex-wrap:wrap;gap:10px}
-    .legal-links a{border:1px solid #223046;border-radius:10px;padding:6px 10px;background:#0e1522}
+    .note{
+      margin-top:18px; padding:12px;
+      border:1px dashed var(--chip-border);
+      border-radius:12px; color:var(--muted)
+    }
 
-    footer{border-top:1px solid var(--line);margin-top:28px}
-    .foot{display:flex;gap:12px;justify-content:space-between;align-items:center;padding:16px 0;color:var(--muted);font-size:.95rem}
+    .links-row{margin-top:14px; display:flex; gap:12px; flex-wrap:wrap}
+    .btn{
+      padding:10px 14px; border-radius:12px;
+      border:1px solid var(--chip-border);
+      background: var(--surface);
+      color: var(--chip-text);
+      text-decoration:none;
+    }
+    .btn:hover{ background:var(--chip-bg-hover) }
 
-    @media (prefers-color-scheme:light){
-      :root{--bg:#f7f8fb;--card:#ffffff;--text:#0b1220;--muted:#667085;--line:#e6e9ef}
-      header{background:#fff}
-      .card{background:#fff}
+    /* ======= Footer ======= */
+    footer{border-top:1px solid var(--line); margin-top:28px}
+    .foot{
+      display:flex; justify-content:space-between; align-items:center;
+      padding:14px 0; color:var(--muted); font-size:.95rem
     }
   </style>
 </head>
 <body>
+  <!-- Header -->
   <header>
     <div class="wrap nav">
       <div class="logo"><span class="dot"></span> Health&nbsp;Gaming</div>
-      <nav class="navlinks">
-        <a class="btn" href="index.html">Start</a>
-        <a class="btn" href="privacy.html">Privacy</a>
-        <a class="btn" href="terms.html">Terms</a>
-        <span id="l-de" class="chip active" onclick="setLang('de')">DE</span>
-        <span id="l-en" class="chip" onclick="setLang('en')">EN</span>
-      </nav>
+      <div style="margin-left:auto; display:flex; gap:8px; flex-wrap:wrap">
+        <a class="chip" href="index.html">Start</a>
+        <a class="chip" href="privacy.html">Privacy</a>
+        <a class="chip" href="terms.html">Terms</a>
+        <a class="chip chip--active" href="#" aria-current="page">DE</a>
+        <a class="chip" href="imprint-en.html">EN</a>
+      </div>
     </div>
   </header>
 
-  <main class="wrap">
-    <h1 id="title">Impressum</h1>
-    <p class="sub" id="subtitle">Angaben gemäß § 5 TMG / § 18 MStV</p>
+  <!-- Main -->
+  <main>
+    <div class="wrap">
+      <h1>Impressum</h1>
+      <p class="sub">Angaben gemäß § 5 TMG / § 18 MStV</p>
 
-    <article class="card" id="content-de">
-      <h2>Diensteanbieter</h2>
-      <p>
-        <strong>[NAME / FIRMA]</strong><br>
-        [STRAßE + NR]<br>
-        [PLZ ORT], Deutschland<br>
-        E-Mail: <a href="mailto:[E-MAIL]">[E-MAIL]</a><br>
-        Telefon (optional): [TELEFON]<br>
-        Vertretungsberechtigt: [VERTRETUNGSBERECHTIGTE PERSON]
-      </p>
+      <section class="card kachel">
+        <h2>Diensteanbieter</h2>
+        <div>
+          <div><strong>[NAME / FIRMA]</strong></div>
+          <div>[STRAßE + NR]</div>
+          <div>[PLZ ORT], Deutschland</div>
+        </div>
 
-      <h2>Umsatzsteuer-ID</h2>
-      <p>USt-IdNr.: [DE-XXXXX] (sofern vorhanden)</p>
+        <h2>Kontakt</h2>
+        <div>
+          E-Mail: <a href="mailto:[E-MAIL]">[E-MAIL]</a><br />
+          Telefon (optional): [TELEFON]
+        </div>
 
-      <h2>Verantwortlich für den Inhalt (§ 18 Abs. 2 MStV)</h2>
-      <p>[NAME, ANSCHRIFT]</p>
+        <h2>Vertretungsberechtigt</h2>
+        <div>[VERTRETUNGSBERECHTIGTE PERSON]</div>
 
-      <h2>Haftung für Inhalte</h2>
-      <p class="muted">
-        Als Diensteanbieter sind wir gemäß § 7 Abs. 1 TMG für eigene Inhalte verantwortlich.
-        Nach §§ 8–10 TMG sind wir jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde
-        Informationen zu überwachen. Bei Bekanntwerden von Rechtsverletzungen entfernen wir solche
-        Inhalte umgehend.
-      </p>
+        <h2>Umsatzsteuer-ID</h2>
+        <div>USt-IdNr.: [DE-XXXXX] (sofern vorhanden)</div>
 
-      <h2>Haftung für Links</h2>
-      <p class="muted">
-        Unsere App/Website kann Links zu externen Seiten enthalten, auf deren Inhalte wir keinen
-        Einfluss haben. Für diese Inhalte ist stets der jeweilige Anbieter verantwortlich.
-      </p>
+        <h2>Verantwortlich i.S.d. § 18 Abs. 2 MStV (V.i.S.d.P.)</h2>
+        <div>[NAME, ANSCHRIFT]</div>
 
-      <h2>Urheberrecht</h2>
-      <p class="muted">
-        Die durch uns erstellten Inhalte und Werke unterliegen dem deutschen Urheberrecht.
-        Vervielfältigung, Bearbeitung und Verwertung außerhalb gesetzlicher Grenzen bedürfen
-        unserer Zustimmung.
-      </p>
+        <h2>Haftung für Inhalte</h2>
+        <p class="muted">
+          Als Diensteanbieter sind wir gemäß § 7 Abs. 1 TMG für eigene Inhalte verantwortlich.
+          Nach §§ 8–10 TMG sind wir jedoch nicht verpflichtet, übermittelte oder gespeicherte
+          fremde Informationen zu überwachen. Bei Bekanntwerden von Rechtsverletzungen entfernen
+          wir diese Inhalte umgehend.
+        </p>
 
-      <h2>EU-Streitbeilegung / Verbraucherstreitbeilegung</h2>
-      <p class="muted">
-        OS-Plattform: <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener">https://ec.europa.eu/consumers/odr/</a><br>
-        Wir sind nicht verpflichtet und in der Regel nicht bereit, an Streitbeilegungsverfahren
-        vor einer Verbraucher-Schlichtungsstelle teilzunehmen.
-      </p>
+        <h2>Haftung für Links</h2>
+        <p class="muted">
+          Unsere App/Website kann Links zu externen Websites Dritter enthalten. Für deren Inhalte
+          übernehmen wir keine Gewähr; verantwortlich ist der jeweilige Anbieter.
+        </p>
 
-      <h2>Bild- und Iconnachweise</h2>
-      <ul class="muted">
-        <li>[QUELLE / LIZENZ, falls verwendet]</li>
-      </ul>
+        <h2>Urheberrecht</h2>
+        <p class="muted">
+          Die durch uns erstellten Inhalte und Werke unterliegen dem deutschen Urheberrecht.
+          Vervielfältigung, Bearbeitung und Verwertung außerhalb der gesetzlichen Grenzen bedürfen
+          unserer Zustimmung.
+        </p>
 
-      <div class="legal-links">
-        <a href="privacy.html">Datenschutzerklärung</a>
-        <a href="terms.html">Nutzungsbedingungen</a>
+        <h2>EU-Streitbeilegung / Verbraucherstreitbeilegung</h2>
+        <p class="muted">
+          OS-Plattform:
+          <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener">
+            https://ec.europa.eu/consumers/odr/
+          </a>.
+          Wir sind nicht verpflichtet und in der Regel nicht bereit, an Streitbeilegungsverfahren
+          vor einer Verbraucher-Schlichtungsstelle teilzunehmen.
+        </p>
+
+        <h2>Bild- & Iconnachweise</h2>
+        <p class="muted">[QUELLEN / LIZENZEN, falls verwendet]</p>
+
+        <div class="note">
+          Letzte Aktualisierung: <span id="date">08.11.2025</span>
+        </div>
+      </section>
+
+      <div class="links-row">
+        <a class="btn" href="privacy.html">Datenschutzerklärung</a>
+        <a class="btn" href="terms.html">Nutzungsbedingungen</a>
       </div>
-    </article>
-
-    <article class="card" id="content-en" style="display:none">
-      <h2>Service Provider</h2>
-      <p>
-        <strong>[NAME / COMPANY]</strong><br>
-        [STREET + NO]<br>
-        [ZIP CITY], Germany<br>
-        Email: <a href="mailto:[EMAIL]">[EMAIL]</a><br>
-        Phone (optional): [PHONE]<br>
-        Authorized representative: [REPRESENTATIVE]
-      </p>
-
-      <h2>VAT ID</h2>
-      <p>VAT No.: [DE-XXXXX] (if applicable)</p>
-
-      <h2>Responsible for Editorial Content (Germany)</h2>
-      <p>[NAME, ADDRESS]</p>
-
-      <h2>Liability for Content</h2>
-      <p class="muted">
-        As a service provider, we are responsible for our own content pursuant to Sec. 7(1) TMG.
-        Under Secs. 8–10 TMG, we are not obliged to monitor transmitted or stored third-party
-        information. Upon becoming aware of legal violations, we will remove such content without delay.
-      </p>
-
-      <h2>Liability for Links</h2>
-      <p class="muted">
-        Our app/website may contain links to external websites. We have no influence over their content
-        and assume no liability. The respective provider is responsible.
-      </p>
-
-      <h2>Copyright</h2>
-      <p class="muted">
-        Content created by us is subject to German copyright law. Duplication, editing or use beyond
-        statutory limits requires our consent.
-      </p>
-
-      <h2>EU Online Dispute Resolution</h2>
-      <p class="muted">
-        ODR platform: <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener">https://ec.europa.eu/consumers/odr/</a><br>
-        We are not obliged and generally not willing to participate in consumer arbitration.
-      </p>
-
-      <h2>Image & Icon Credits</h2>
-      <ul class="muted">
-        <li>[SOURCE / LICENSE, if any]</li>
-      </ul>
-
-      <div class="legal-links">
-        <a href="privacy.html">Privacy Policy</a>
-        <a href="terms.html">Terms of Use</a>
-      </div>
-    </article>
+    </div>
   </main>
 
+  <!-- Footer -->
   <footer>
     <div class="wrap foot">
-      <div>© <span id="year"></span> <strong>Health Gaming</strong></div>
-      <div style="display:flex;gap:14px">
-        <a href="privacy.html">Privacy</a>
-        <a href="terms.html">Terms</a>
-        <a href="index.html">Start</a>
-      </div>
+      <div>© <span id="year"></span> Health Gaming</div>
+      <div><a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a> · <a href="index.html">Start</a></div>
     </div>
   </footer>
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
-
-    function setLang(lang){
-      const de = lang==='de';
-      document.getElementById('l-de').classList.toggle('active', de);
-      document.getElementById('l-en').classList.toggle('active', !de);
-      document.getElementById('content-de').style.display = de ? 'block' : 'none';
-      document.getElementById('content-en').style.display = de ? 'none'  : 'block';
-      document.title = de ? 'Impressum – Health Gaming' : 'Imprint – Health Gaming';
-      document.getElementById('title').textContent   = de ? 'Impressum' : 'Imprint';
-      document.getElementById('subtitle').textContent= de ? 'Angaben gemäß § 5 TMG / § 18 MStV'
-                                                          : 'Provider Identification (Germany)';
-    }
+    // Falls du das Datum dynamisch willst, nimm die nächste Zeile statt der fixen 08.11.2025:
+    // document.getElementById('date').textContent = new Date().toLocaleDateString('de-DE');
   </script>
 </body>
 </html>
