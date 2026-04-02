@@ -3,231 +3,915 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Datenschutzerklärung / Privacy Policy – Health Gaming</title>
-  <meta name="description" content="Datenschutzerklärung und Privacy Policy für die App Health Gaming." />
+  <title>Datenschutz / Privacy – Health Gaming</title>
+  <meta name="description" content="Datenschutzerklärung und Privacy Policy für Health Gaming." />
   <meta name="color-scheme" content="dark light" />
-  <link rel="icon" href="favicon.ico" />
+
   <style>
     :root{
-      --bg:#0b0f14; --surface:#0f1520; --card:#121a27; --text:#e7ebf2; --muted:#a0a8b8; --line:#1e2a3d;
-      --purple:#8b5cf6; --teal:#22d3ee;
-      --chip-bg:transparent; --chip-border:#2a3650; --chip-text:var(--text);
-      --chip-bg-hover:rgba(255,255,255,.04); --chip-border-hover:#395070;
-      --radius:16px; --max:900px; --shadow:0 0 0 1px var(--line);
-      --ring:0 0 0 6px color-mix(in srgb, var(--teal) 22%, transparent);
+      --bg:#0b0f14;
+      --bg-2:#0f141c;
+      --surface:#101726;
+      --card:#121a27;
+      --text:#e7ebf2;
+      --muted:#9ea8ba;
+      --line:#1f2a3c;
+      --purple:#8b5cf6;
+      --teal:#22d3ee;
+      --radius:20px;
+      --max:980px;
+      --ring:rgba(139,92,246,.18);
+      --shadow:0 14px 40px rgba(0,0,0,.30);
     }
-    @media (prefers-color-scheme: light){
-      :root{
-        --bg:#f7f9fc; --surface:#ffffff; --card:#ffffff; --text:#0b1220; --muted:#667085; --line:#e6e9ef;
-        --chip-bg:transparent; --chip-border:#cfd6e4; --chip-text:#0b1220;
-        --chip-bg-hover:#f3f6fb; --chip-border-hover:#b8c3d8;
-        --shadow:0 1px 0 0 var(--line);
-        --ring:0 0 0 6px color-mix(in srgb, var(--teal) 28%, transparent);
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      background:
+        radial-gradient(1100px 760px at 10% -10%, rgba(34,211,238,.10), transparent 60%),
+        radial-gradient(920px 700px at 110% 0%, rgba(139,92,246,.12), transparent 60%),
+        linear-gradient(180deg, var(--bg), var(--bg-2));
+      color:var(--text);
+      font:16px/1.65 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;
+    }
+
+    a{color:var(--teal);text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    .wrap{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:0 20px;
+    }
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:40;
+      background:rgba(11,15,20,.74);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid var(--line);
+    }
+
+    .nav{
+      min-height:68px;
+      display:flex;
+      align-items:center;
+      gap:14px;
+      flex-wrap:wrap;
+      padding:10px 0;
+    }
+
+    .logo{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-weight:800;
+      color:var(--text);
+      white-space:nowrap;
+    }
+
+    .dot{
+      width:12px;
+      height:12px;
+      border-radius:50%;
+      background:linear-gradient(135deg,var(--teal),var(--purple));
+      box-shadow:0 0 0 4px var(--ring);
+      flex:0 0 auto;
+    }
+
+    .navlinks{
+      margin-left:auto;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      min-height:42px;
+      padding:10px 14px;
+      border-radius:12px;
+      background:#0f1520;
+      border:1px solid #2a3650;
+      color:var(--text);
+      text-decoration:none;
+      font-weight:700;
+      transition:.18s ease;
+      cursor:pointer;
+    }
+
+    .btn:hover{
+      text-decoration:none;
+      transform:translateY(-1px);
+      border-color:#395070;
+      background:#131b28;
+    }
+
+    .btn.primary{
+      background:linear-gradient(135deg, rgba(34,211,238,.14), rgba(139,92,246,.16));
+      box-shadow:0 0 0 3px var(--ring);
+    }
+
+    .btn.active{
+      border-color:var(--teal);
+      box-shadow:0 0 0 2px rgba(34,211,238,.18);
+    }
+
+    .lang-switch{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      padding:4px;
+      border-radius:999px;
+      border:1px solid #2a3650;
+      background:#0f1520;
+    }
+
+    .lang-switch button{
+      border:0;
+      background:transparent;
+      color:var(--text);
+      font-weight:800;
+      padding:8px 12px;
+      border-radius:999px;
+      cursor:pointer;
+      transition:.18s ease;
+    }
+
+    .lang-switch button.active{
+      background:linear-gradient(135deg,var(--purple),var(--teal));
+      color:white;
+    }
+
+    main{
+      padding:34px 0 44px;
+    }
+
+    .hero{
+      margin-bottom:20px;
+    }
+
+    .hero-card{
+      background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.015));
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:28px;
+    }
+
+    .tag{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      font-size:.85rem;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid #2a3650;
+      background:#0f1520;
+      color:var(--muted);
+      font-weight:800;
+      margin-bottom:12px;
+    }
+
+    h1{
+      margin:0 0 8px;
+      font-size:clamp(2rem,4vw,2.8rem);
+      line-height:1.08;
+      letter-spacing:-.02em;
+    }
+
+    .sub{
+      margin:0;
+      color:var(--muted);
+      font-size:1rem;
+    }
+
+    .meta{
+      margin-top:14px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      color:var(--muted);
+      font-size:.95rem;
+    }
+
+    .content-card{
+      background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.015));
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:24px;
+    }
+
+    h2{
+      margin:24px 0 8px;
+      font-size:1.08rem;
+      line-height:1.3;
+    }
+
+    h2:first-child{margin-top:0}
+
+    p, li{
+      color:var(--muted);
+    }
+
+    strong{
+      color:var(--text);
+    }
+
+    ul, ol{
+      margin:0;
+      padding-left:20px;
+    }
+
+    .notice{
+      margin-top:18px;
+      padding:14px 16px;
+      border-radius:14px;
+      border:1px dashed #35506d;
+      background:rgba(255,255,255,.015);
+      color:var(--muted);
+    }
+
+    .link-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:22px;
+    }
+
+    footer{
+      border-top:1px solid var(--line);
+      margin-top:28px;
+    }
+
+    .foot{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      justify-content:space-between;
+      align-items:center;
+      padding:18px 0 24px;
+      color:var(--muted);
+      font-size:.95rem;
+    }
+
+    .foot-links{
+      display:flex;
+      flex-wrap:wrap;
+      gap:14px;
+    }
+
+    [data-lang-block]{
+      display:none;
+    }
+
+    body.lang-de [data-lang-block="de"]{
+      display:block;
+    }
+
+    body.lang-en [data-lang-block="en"]{
+      display:block;
+    }
+
+    @media (max-width: 760px){
+      .nav{
+        align-items:flex-start;
+      }
+
+      .navlinks{
+        margin-left:0;
+        width:100%;
+        justify-content:flex-start;
+      }
+
+      .hero-card,
+      .content-card{
+        padding:20px;
       }
     }
-    *{box-sizing:border-box} html,body{margin:0;height:100%}
-    body{
-      background:
-        radial-gradient(900px 600px at -10% -20%, color-mix(in srgb, var(--teal) 10%, transparent) 0%, transparent 60%),
-        radial-gradient(800px 500px at 110% 0%, color-mix(in srgb, var(--purple) 12%, transparent) 0%, transparent 60%),
-        var(--bg);
-      color:var(--text); font:16px/1.65 system-ui,-apple-system,Segoe UI,Inter,Roboto,Arial;
+
+    @media (prefers-color-scheme: light){
+      :root{
+        --bg:#f7f8fb;
+        --bg-2:#eef2f8;
+        --surface:#ffffff;
+        --card:#ffffff;
+        --text:#0b1220;
+        --muted:#667085;
+        --line:#e6e9ef;
+        --ring:rgba(139,92,246,.12);
+        --shadow:0 12px 32px rgba(15,23,42,.08);
+      }
+
+      header{
+        background:rgba(255,255,255,.84);
+      }
+
+      .btn,
+      .lang-switch,
+      .tag{
+        background:#fff;
+        border-color:#dbe2ec;
+      }
+
+      .btn:hover{
+        background:#f8fbff;
+      }
+
+      .btn.primary{
+        background:#f3f7ff;
+      }
+
+      .notice{
+        background:#fff;
+        border-color:#c9d7e7;
+      }
     }
-    a{color:var(--teal);text-decoration:none} a:hover{text-decoration:underline}
-    header{position:sticky; top:0; z-index:10; backdrop-filter:blur(10px);
-      background:color-mix(in srgb, var(--surface) 70%, transparent); border-bottom:1px solid var(--line)}
-    .wrap{max-width:var(--max); margin:0 auto; padding:0 20px}
-    .nav{display:flex; align-items:center; gap:12px; padding:14px 0}
-    .logo{display:flex; align-items:center; gap:10px; font-weight:700}
-    .dot{width:12px;height:12px;border-radius:50%;
-      background:conic-gradient(from 0deg, var(--teal), var(--purple)); box-shadow:var(--ring)}
-    .chip{display:inline-flex; align-items:center; justify-content:center; padding:8px 12px; border-radius:12px;
-      border:1px solid var(--chip-border); background:var(--chip-bg); color:var(--chip-text);
-      transition:background .18s, border-color .18s, transform .06s}
-    .chip:hover{background:var(--chip-bg-hover); border-color:var(--chip-border-hover)} .chip:active{transform:translateY(1px)}
-    .chip--active{border-color:color-mix(in srgb, var(--teal) 55%, var(--chip-border)); box-shadow:0 0 0 2px color-mix(in srgb, var(--teal) 30%, transparent)}
-    main{padding:32px 0}
-    h1{font-size:clamp(1.9rem,3.4vw,2.3rem); margin:0 0 6px}
-    .sub{color:var(--muted); margin:0 0 18px}
-    .card{background:var(--card); border:1px solid var(--line); border-radius:var(--radius); padding:22px; box-shadow:var(--shadow)}
-    h2{font-size:1.05rem; letter-spacing:.02em; margin:20px 0 8px}
-    .muted{color:var(--muted)}
-    .note{margin-top:18px; padding:12px; border:1px dashed var(--chip-border); border-radius:12px; color:var(--muted)}
-    .links-row{margin-top:14px; display:flex; gap:12px; flex-wrap:wrap}
-    .btn{padding:10px 14px; border-radius:12px; border:1px solid var(--chip-border); background:var(--surface); color:var(--chip-text)}
-    .btn:hover{background:var(--chip-bg-hover)}
-    footer{border-top:1px solid var(--line); margin-top:28px}
-    .foot{display:flex; justify-content:space-between; align-items:center; padding:14px 0; color:var(--muted); font-size:.95rem}
-    /* language visibility */
-    [data-i18n]{display:none}
-    .show-de [data-i18n="de"]{display:block}
-    .show-en [data-i18n="en"]{display:block}
   </style>
 </head>
-<body class="show-de">
-<header>
-  <div class="wrap nav">
-    <div class="logo"><span class="dot"></span> Health&nbsp;Gaming</div>
-    <div style="margin-left:auto; display:flex; gap:8px; flex-wrap:wrap">
-      <a class="chip" href="index.html">Start</a>
-      <a class="chip chip--active" href="#" aria-current="page">Privacy</a>
-      <a class="chip" href="terms.html">Terms</a>
-      <a class="chip" href="impressum.html">Impressum</a>
-      <button class="chip" id="btn-de" type="button" aria-pressed="true">DE</button>
-      <button class="chip" id="btn-en" type="button" aria-pressed="false">EN</button>
+<body class="lang-de">
+  <header>
+    <div class="wrap">
+      <div class="nav">
+        <a class="logo" href="index.html" id="logoLink" aria-label="Health Gaming Home">
+          <span class="dot"></span>
+          <span>Health Gaming</span>
+        </a>
+
+        <div class="navlinks">
+          <a class="btn" href="index.html" id="navHome">Start</a>
+          <a class="btn primary" href="privacy.html" id="navPrivacy">Privacy</a>
+          <a class="btn" href="terms.html" id="navTerms">Terms</a>
+          <a class="btn" href="impressum.html" id="navImprint">Impressum</a>
+
+          <div class="lang-switch" aria-label="Language switch">
+            <button id="btn-de" type="button">DE</button>
+            <button id="btn-en" type="button">EN</button>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-</header>
+  </header>
 
-<main>
-  <div class="wrap">
-    <h1>Datenschutz / Privacy</h1>
-    <p class="sub"><span id="date">08.11.2025</span></p>
+  <main>
+    <div class="wrap">
+      <section class="hero">
+        <div class="hero-card">
+          <div class="tag" data-lang-block="de">Datenschutz & Transparenz</div>
+          <div class="tag" data-lang-block="en">Privacy & transparency</div>
 
-    <section class="card" data-i18n="de">
-      <h2>Datenschutzerklärung</h2>
-      <p class="muted"><strong>Verantwortlicher (Art. 4 Nr. 7 DSGVO)</strong><br>
-        [NAME / FIRMA], [STRAßE + NR], [PLZ ORT], Deutschland<br>
-        E-Mail: <a href="mailto:[E-MAIL]">[E-MAIL]</a> – Vertretungsberechtigt: [VERTRETUNG]</p>
+          <h1 data-lang-block="de">Datenschutzerklärung</h1>
+          <h1 data-lang-block="en">Privacy Policy</h1>
 
-      <h2>Überblick</h2>
-      <p class="muted">Die App ist ohne Konto nutzbar. Gesundheits-/Aktivitätsdaten … werden
-        <strong>lokal</strong> auf deinem Gerät gespeichert. Aktuell <strong>keine Serverübertragung</strong> und
-        <strong>kein Tracking</strong>. Abostatus (Free/Lite/Pro) wird lokal als Flag gespeichert.</p>
+          <p class="sub" data-lang-block="de">
+            Hier erklären wir, welche Daten in Health Gaming verarbeitet werden, wie die App funktioniert
+            und welche Rechte du hast.
+          </p>
+          <p class="sub" data-lang-block="en">
+            Here we explain which data is processed in Health Gaming, how the app works
+            and which rights you have.
+          </p>
 
-      <h2>Datenkategorien</h2>
-      <ul class="muted">
-        <li>App-Nutzungsdaten (Ziele, Tageswerte, Aufgabenfortschritt, XP/Level, Streaks, Achievements)</li>
-        <li>Abonnement-Flags (Plan, Zugriffsrechte, Ads-Flag – derzeit ohne aktive Werbung)</li>
-        <li>Berechtigungen: optionale Benachrichtigungen (System-Einwilligung)</li>
-      </ul>
+          <div class="meta">
+            <span data-lang-block="de">Letzte Aktualisierung: <strong id="dateDe">02.04.2026</strong></span>
+            <span data-lang-block="en">Last updated: <strong id="dateEn">02.04.2026</strong></span>
+          </div>
+        </div>
+      </section>
 
-      <h2>Zwecke &amp; Rechtsgrundlagen</h2>
-      <ol class="muted">
-        <li>App-Funktion (Art. 6 Abs. 1 lit. b DSGVO)</li>
-        <li>Einwilligung (Art. 6 Abs. 1 lit. a DSGVO), z. B. Benachrichtigungen</li>
-        <li>Berechtigte Interessen (Art. 6 Abs. 1 lit. f DSGVO)</li>
-      </ol>
+      <section class="content-card" data-lang-block="de">
+        <h2>1. Verantwortlicher</h2>
+        <p>
+          Verantwortlich für die Datenverarbeitung im Zusammenhang mit dieser App und dieser Website ist:
+        </p>
+        <p>
+          <strong>[DEIN NAME / FIRMA]</strong><br>
+          [STRASSE / NR.]<br>
+          [PLZ ORT], Deutschland<br>
+          E-Mail: <a href="mailto:[DEINE E-MAIL]">[DEINE E-MAIL]</a>
+        </p>
 
-      <h2>Speicherung / Dauer</h2>
-      <p class="muted">Lokal bis zur Deinstallation bzw. zum Zurücksetzen der App-Daten.</p>
+        <h2>2. Überblick</h2>
+        <p>
+          Health Gaming ist eine Health- und Habit-Tracking-App mit spielerischen Elementen.
+          Nutzer können unter anderem Ziele festlegen, Schritte, Wasser und Schlaf protokollieren,
+          Aufgaben abhaken, XP sammeln, Level aufsteigen, Streaks aufbauen, Quests erfüllen
+          und Erfolge freischalten.
+        </p>
+        <p>
+          Nach dem derzeitigen Stand funktioniert die App in ihrem Kern
+          <strong>ohne Benutzerkonto</strong> und speichert wesentliche Daten
+          <strong>lokal auf dem Gerät</strong>.
+        </p>
 
-      <h2>Empfänger / Drittländer</h2>
-      <p class="muted">Keine externen Empfänger; keine Drittlandübermittlung. Bei späterer Integration von Diensten
-        (z. B. Firebase/Analytics/Ads) informieren wir vor Aktivierung transparent und holen ggf. Einwilligungen ein.</p>
+        <h2>3. Welche Daten verarbeitet werden</h2>
+        <p>Je nach Nutzung der App können insbesondere folgende Daten verarbeitet werden:</p>
+        <ul>
+          <li>Ziele für Schritte, Wasser und Schlaf</li>
+          <li>manuell eingetragene Tageswerte für Schritte, Wasser und Schlaf</li>
+          <li>To-do-Aufgaben, Aufgabenstatus und zugehörige XP</li>
+          <li>Quest-Fortschritte und Quest-Belohnungen</li>
+          <li>Level, Gesamt-XP, XP-Fortschritt und Streaks</li>
+          <li>Achievements / Erfolge und Freischaltungen</li>
+          <li>gewählte Sprache der App</li>
+          <li>gewählter Skin, Avatar oder Anzeigeeinstellungen</li>
+          <li>Profilangaben wie Anzeigename oder Emoji, sofern du diese selbst eingibst</li>
+          <li>Abo-Status bzw. lokal gespeicherte Plan-Flags wie Free, Lite oder Pro</li>
+          <li>Einstellungen zu Konfetti, Tagesbonus, Darstellung und ähnlichen App-Optionen</li>
+          <li>ggf. technische Informationen, die durch das Betriebssystem oder den App-Store bereitgestellt werden</li>
+        </ul>
 
-      <h2>Betroffenenrechte</h2>
-      <p class="muted">Auskunft, Berichtigung, Löschung, Einschränkung, Übertragbarkeit, Widerspruch (Art. 15–21 DSGVO).
-        Einwilligungen jederzeit widerrufbar. Beschwerde bei der Aufsichtsbehörde möglich.</p>
+        <h2>4. Herkunft der Daten</h2>
+        <p>
+          Die meisten Daten stammen direkt von dir, weil du sie in der App eingibst oder durch deine Nutzung erzeugst.
+          Zusätzlich können einzelne technische Informationen vom Betriebssystem, vom App-Store
+          oder später von eingebundenen Diensten bereitgestellt werden.
+        </p>
 
-      <h2>Minderjährige</h2>
-      <p class="muted">Nicht für Kinder unter 16 Jahren bestimmt.</p>
+        <h2>5. Zwecke der Verarbeitung</h2>
+        <p>Die Verarbeitung erfolgt insbesondere zu folgenden Zwecken:</p>
+        <ul>
+          <li>Bereitstellung und Funktionsfähigkeit der App</li>
+          <li>Speicherung deiner Fortschritte, Ziele, Aufgaben und Statistiken</li>
+          <li>Berechnung von XP, Leveln, Streaks, Quests und Achievements</li>
+          <li>Freischaltung oder Sperrung bestimmter Bereiche je nach Plan</li>
+          <li>Speicherung deiner Sprache und Darstellungseinstellungen</li>
+          <li>Bereitstellung optionaler Benachrichtigungen</li>
+          <li>Fehlerbehebung, Stabilität und Weiterentwicklung der App</li>
+          <li>Erfüllung rechtlicher Pflichten</li>
+        </ul>
 
-      <h2>Sicherheit</h2>
-      <p class="muted">Daten bleiben lokal; sichere dein Gerät (PIN/Biometrie/Updates). 100%-Schutz ist nicht möglich.</p>
+        <h2>6. Rechtsgrundlagen</h2>
+        <p>Die Verarbeitung kann auf folgenden Rechtsgrundlagen beruhen:</p>
+        <ul>
+          <li><strong>Art. 6 Abs. 1 lit. b DSGVO</strong> – soweit die Verarbeitung zur Bereitstellung der App-Funktionen erforderlich ist</li>
+          <li><strong>Art. 6 Abs. 1 lit. a DSGVO</strong> – wenn du z. B. in optionale Benachrichtigungen einwilligst</li>
+          <li><strong>Art. 6 Abs. 1 lit. f DSGVO</strong> – für berechtigte Interessen, etwa Sicherheit, Stabilität und Verbesserung</li>
+          <li><strong>Art. 6 Abs. 1 lit. c DSGVO</strong> – soweit gesetzliche Verpflichtungen bestehen</li>
+        </ul>
 
-      <h2>Änderungen</h2>
-      <p class="muted">Bei Funktions-/Rechtsänderungen passen wir diese Erklärung an.</p>
+        <h2>7. Lokale Speicherung auf dem Gerät</h2>
+        <p>
+          Ein großer Teil der App-Daten wird derzeit lokal auf deinem Gerät gespeichert,
+          zum Beispiel über geräteinterne Speichermechanismen.
+          Dazu gehören insbesondere Fortschritte, Ziele, To-dos, Streaks, Quests, XP,
+          Einstellungen und ähnliche App-Daten.
+        </p>
+        <p>
+          Diese Daten verlassen nach dem aktuellen Stand grundsätzlich nicht automatisch dein Gerät,
+          sofern keine zusätzlichen Online-Dienste aktiv eingebunden werden.
+        </p>
 
-      <h2>Kontakt</h2>
-      <p class="muted">[NAME / FIRMA], [STRAßE + NR], [PLZ ORT], E-Mail: <a href="mailto:[E-MAIL]">[E-MAIL]</a>.</p>
+        <h2>8. Abos, Käufe und App-Stores</h2>
+        <p>
+          Die App ist auf Free-, Lite- und Pro-Nutzung ausgelegt.
+          Wenn In-App-Käufe oder Abonnements genutzt werden, erfolgt die Zahlungsabwicklung
+          in der Regel nicht direkt durch uns, sondern über den jeweiligen App-Store
+          (z. B. Google Play oder Apple App Store).
+        </p>
+        <p>
+          Dabei können App-Store-Anbieter eigene Daten verarbeiten.
+          Es gelten dann zusätzlich die Datenschutzbestimmungen des jeweiligen Plattformbetreibers.
+        </p>
 
-      <div class="links-row">
-        <a class="btn" href="terms.html">Nutzungsbedingungen</a>
-        <a class="btn" href="impressum.html">Impressum</a>
+        <h2>9. Werbung</h2>
+        <p>
+          In der kostenlosen Version können Werbefunktionen vorgesehen sein.
+          Wenn Werbung oder Ad-Dienste aktiv eingebunden werden,
+          können technische Daten zur Auslieferung, Häufigkeitssteuerung oder Fehleranalyse verarbeitet werden.
+        </p>
+        <p>
+          Sollte Werbung aktiv genutzt werden, informieren wir transparent über die eingesetzten Dienste
+          und passen diese Datenschutzerklärung entsprechend an.
+        </p>
+
+        <h2>10. Benachrichtigungen</h2>
+        <p>
+          Die App kann optionale Erinnerungen oder Benachrichtigungen verwenden.
+          Diese Funktion ist nur verfügbar, wenn du die entsprechende Systemberechtigung erteilst.
+          Die Nutzung von Benachrichtigungen ist freiwillig und kann in deinem Gerät oder in der App geändert werden.
+        </p>
+
+        <h2>11. Weitergabe an Dritte</h2>
+        <p>
+          Nach dem derzeitigen Stand erfolgt keine Weitergabe deiner lokal gespeicherten Kerndaten an externe Empfänger,
+          soweit dies nicht für bestimmte Dienste, gesetzliche Pflichten oder App-Store-Prozesse erforderlich ist.
+        </p>
+        <p>
+          Falls später Drittanbieter-Dienste eingebunden werden, etwa für Analysen, Cloud-Funktionen,
+          Push-Dienste, Werbung oder Kaufabwicklung, wird diese Erklärung entsprechend ergänzt.
+        </p>
+
+        <h2>12. Drittlandübermittlung</h2>
+        <p>
+          Soweit keine externen Online-Dienste aktiv eingesetzt werden, findet aus unserer Seite derzeit
+          keine geplante Drittlandübermittlung statt.
+          Werden künftig externe Anbieter mit Sitz außerhalb der EU bzw. des EWR genutzt,
+          informieren wir über die entsprechenden Schutzmechanismen.
+        </p>
+
+        <h2>13. Speicherdauer</h2>
+        <p>
+          Lokal gespeicherte Daten bleiben grundsätzlich so lange auf deinem Gerät,
+          bis du sie selbst löschst, die App zurücksetzt oder die App deinstallierst.
+        </p>
+        <p>
+          Gesetzlich relevante Daten, etwa im Zusammenhang mit Zahlungen oder geschäftlichen Pflichten,
+          können gegebenenfalls länger aufbewahrt werden, soweit dies erforderlich ist.
+        </p>
+
+        <h2>14. Datensicherheit</h2>
+        <p>
+          Wir treffen angemessene technische und organisatorische Maßnahmen,
+          um Daten vor unbefugtem Zugriff, Verlust oder Missbrauch zu schützen.
+          Trotzdem kann keine digitale Verarbeitung absolute Sicherheit garantieren.
+        </p>
+        <p>
+          Bitte schütze auch selbst dein Gerät, zum Beispiel durch PIN, Passwort, Biometrie und aktuelle Software-Updates.
+        </p>
+
+        <h2>15. Minderjährige</h2>
+        <p>
+          Die App ist nicht speziell an Kinder unter 16 Jahren gerichtet.
+          Wenn eine Einwilligung erforderlich ist, sollte diese – soweit gesetzlich nötig –
+          durch die Erziehungsberechtigten erfolgen.
+        </p>
+
+        <h2>16. Deine Rechte</h2>
+        <p>Du hast im Rahmen der gesetzlichen Voraussetzungen insbesondere folgende Rechte:</p>
+        <ul>
+          <li>Recht auf Auskunft</li>
+          <li>Recht auf Berichtigung</li>
+          <li>Recht auf Löschung</li>
+          <li>Recht auf Einschränkung der Verarbeitung</li>
+          <li>Recht auf Datenübertragbarkeit</li>
+          <li>Recht auf Widerspruch</li>
+          <li>Recht auf Widerruf erteilter Einwilligungen mit Wirkung für die Zukunft</li>
+          <li>Recht auf Beschwerde bei einer Datenschutzaufsichtsbehörde</li>
+        </ul>
+
+        <h2>17. Änderungen dieser Datenschutzerklärung</h2>
+        <p>
+          Wir behalten uns vor, diese Datenschutzerklärung anzupassen,
+          wenn sich Funktionen, technische Prozesse, gesetzliche Anforderungen
+          oder eingesetzte Dienste ändern.
+        </p>
+
+        <h2>18. Kontakt</h2>
+        <p>
+          Bei Fragen zum Datenschutz kannst du uns kontaktieren:
+        </p>
+        <p>
+          <strong>[DEIN NAME / FIRMA]</strong><br>
+          E-Mail: <a href="mailto:[DEINE E-MAIL]">[DEINE E-MAIL]</a>
+        </p>
+
+        <div class="link-row">
+          <a class="btn" href="index.html" id="deBackHome">Zur Startseite</a>
+          <a class="btn" href="terms.html" id="deTermsLink">Nutzungsbedingungen</a>
+          <a class="btn" href="impressum.html" id="deImprintLink">Impressum</a>
+        </div>
+
+        <div class="notice">
+          Hinweis: Diese Vorlage muss vor Veröffentlichung mit deinen echten Anbieterangaben ergänzt werden.
+          Wenn du später Firebase, RevenueCat, Analytics, echte Ads oder andere externe Dienste aktiv nutzt,
+          muss diese Datenschutzerklärung entsprechend erweitert werden.
+        </div>
+      </section>
+
+      <section class="content-card" data-lang-block="en">
+        <h2>1. Controller</h2>
+        <p>
+          The controller responsible for data processing in connection with this app and website is:
+        </p>
+        <p>
+          <strong>[YOUR NAME / COMPANY]</strong><br>
+          [STREET / NO.]<br>
+          [ZIP CITY], Germany<br>
+          Email: <a href="mailto:[YOUR EMAIL]">[YOUR EMAIL]</a>
+        </p>
+
+        <h2>2. Overview</h2>
+        <p>
+          Health Gaming is a health and habit tracking app with gamified elements.
+          Users can set goals, log steps, water and sleep, complete tasks,
+          earn XP, level up, build streaks, finish quests and unlock achievements.
+        </p>
+        <p>
+          In its current core version, the app works
+          <strong>without a user account</strong> and stores essential data
+          <strong>locally on the device</strong>.
+        </p>
+
+        <h2>3. What data may be processed</h2>
+        <p>Depending on your use of the app, the following data may be processed:</p>
+        <ul>
+          <li>goals for steps, water and sleep</li>
+          <li>manually entered daily values for steps, water and sleep</li>
+          <li>to-do tasks, task status and related XP</li>
+          <li>quest progress and quest rewards</li>
+          <li>level, total XP, XP progress and streaks</li>
+          <li>achievements and unlocks</li>
+          <li>selected app language</li>
+          <li>selected skin, avatar or display preferences</li>
+          <li>profile details such as display name or emoji if you enter them yourself</li>
+          <li>subscription status or locally stored plan flags such as Free, Lite or Pro</li>
+          <li>settings regarding confetti, daily bonus, appearance and similar app options</li>
+          <li>technical information provided by the operating system or app store where applicable</li>
+        </ul>
+
+        <h2>4. Source of the data</h2>
+        <p>
+          Most data comes directly from you because you enter it into the app
+          or generate it through your use of the app.
+          In addition, some technical information may be provided by the operating system,
+          the app store or future integrated services.
+        </p>
+
+        <h2>5. Purposes of processing</h2>
+        <p>Data processing may take place for the following purposes:</p>
+        <ul>
+          <li>providing and operating the app</li>
+          <li>storing your progress, goals, tasks and statistics</li>
+          <li>calculating XP, levels, streaks, quests and achievements</li>
+          <li>unlocking or restricting app areas depending on your plan</li>
+          <li>saving your language and display settings</li>
+          <li>providing optional notifications</li>
+          <li>troubleshooting, stability and further development of the app</li>
+          <li>fulfilling legal obligations</li>
+        </ul>
+
+        <h2>6. Legal bases</h2>
+        <p>Processing may be based in particular on the following legal bases:</p>
+        <ul>
+          <li><strong>Art. 6(1)(b) GDPR</strong> – where processing is necessary to provide app functionality</li>
+          <li><strong>Art. 6(1)(a) GDPR</strong> – for example if you consent to optional notifications</li>
+          <li><strong>Art. 6(1)(f) GDPR</strong> – for legitimate interests such as security, stability and improvement</li>
+          <li><strong>Art. 6(1)(c) GDPR</strong> – where legal obligations apply</li>
+        </ul>
+
+        <h2>7. Local storage on the device</h2>
+        <p>
+          A large part of the app data is currently stored locally on your device,
+          for example through device-based storage mechanisms.
+          This may include progress, goals, to-dos, streaks, quests, XP,
+          settings and similar app data.
+        </p>
+        <p>
+          At the current stage, such data generally does not automatically leave your device
+          unless additional online services are actively integrated.
+        </p>
+
+        <h2>8. Subscriptions, purchases and app stores</h2>
+        <p>
+          The app is designed for Free, Lite and Pro usage.
+          If in-app purchases or subscriptions are used,
+          payment processing is generally not handled directly by us,
+          but by the relevant app store provider
+          (for example Google Play or the Apple App Store).
+        </p>
+        <p>
+          App store providers may process their own data.
+          Their own privacy policies apply in addition.
+        </p>
+
+        <h2>9. Advertising</h2>
+        <p>
+          Advertising features may be provided in the free version.
+          If ads or advertising services are actively integrated,
+          technical data may be processed for delivery, frequency control or error analysis.
+        </p>
+        <p>
+          If ads are actively used, we will inform users transparently about the services involved
+          and update this privacy policy accordingly.
+        </p>
+
+        <h2>10. Notifications</h2>
+        <p>
+          The app may use optional reminders or notifications.
+          This function is only available if you grant the relevant system permission.
+          The use of notifications is voluntary and can be changed in your device or within the app.
+        </p>
+
+        <h2>11. Sharing with third parties</h2>
+        <p>
+          At the current stage, there is no transfer of your locally stored core data to external recipients,
+          unless this is required for specific services, legal obligations or app store processes.
+        </p>
+        <p>
+          If third-party services are integrated in the future, for example for analytics, cloud features,
+          push services, advertising or purchase handling, this policy will be updated accordingly.
+        </p>
+
+        <h2>12. International transfers</h2>
+        <p>
+          As long as no external online services are actively used,
+          there is currently no intended international transfer on our side.
+          If external providers outside the EU/EEA are used in the future,
+          we will provide information on the corresponding safeguards.
+        </p>
+
+        <h2>13. Retention period</h2>
+        <p>
+          Locally stored data generally remains on your device
+          until you delete it yourself, reset the app or uninstall the app.
+        </p>
+        <p>
+          Data that is legally relevant, for example in connection with payments or business obligations,
+          may be retained longer where necessary.
+        </p>
+
+        <h2>14. Data security</h2>
+        <p>
+          We take appropriate technical and organizational measures
+          to protect data against unauthorized access, loss or misuse.
+          However, no digital system can guarantee absolute security.
+        </p>
+        <p>
+          Please also protect your own device, for example by using PIN, password, biometrics and current software updates.
+        </p>
+
+        <h2>15. Minors</h2>
+        <p>
+          The app is not specifically intended for children under the age of 16.
+          If consent is required, it should – where legally necessary –
+          be provided by the parents or legal guardians.
+        </p>
+
+        <h2>16. Your rights</h2>
+        <p>Under the applicable legal requirements, you may have the following rights:</p>
+        <ul>
+          <li>right of access</li>
+          <li>right to rectification</li>
+          <li>right to erasure</li>
+          <li>right to restriction of processing</li>
+          <li>right to data portability</li>
+          <li>right to object</li>
+          <li>right to withdraw consent for the future</li>
+          <li>right to lodge a complaint with a supervisory authority</li>
+        </ul>
+
+        <h2>17. Changes to this privacy policy</h2>
+        <p>
+          We reserve the right to update this privacy policy
+          if features, technical processes, legal requirements
+          or integrated services change.
+        </p>
+
+        <h2>18. Contact</h2>
+        <p>
+          If you have questions about privacy, you can contact us:
+        </p>
+        <p>
+          <strong>[YOUR NAME / COMPANY]</strong><br>
+          Email: <a href="mailto:[YOUR EMAIL]">[YOUR EMAIL]</a>
+        </p>
+
+        <div class="link-row">
+          <a class="btn" href="index.html" id="enBackHome">Back to home</a>
+          <a class="btn" href="terms.html" id="enTermsLink">Terms of Use</a>
+          <a class="btn" href="impressum.html" id="enImprintLink">Imprint</a>
+        </div>
+
+        <div class="notice">
+          Note: Before publishing, you must replace this template with your real provider details.
+          If you later activate Firebase, RevenueCat, analytics, real ads or other external services,
+          this privacy policy must be extended accordingly.
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="foot">
+        <div>© <span id="year"></span> Health Gaming</div>
+        <div class="foot-links">
+          <a href="index.html" id="footerHome">Start</a>
+          <a href="privacy.html" id="footerPrivacy">Privacy</a>
+          <a href="terms.html" id="footerTerms">Terms</a>
+          <a href="impressum.html" id="footerImprint">Impressum</a>
+        </div>
       </div>
+    </div>
+  </footer>
 
-      <div class="note">Hinweis: Diese App verarbeitet Daten primär lokal.</div>
-    </section>
-
-    <section class="card" data-i18n="en">
-      <h2>Privacy Policy</h2>
-      <p class="muted"><strong>Controller (Art. 4(7) GDPR)</strong><br>
-        [NAME / COMPANY], [STREET + NO], [ZIP CITY], Germany<br>
-        Email: <a href="mailto:[EMAIL]">[EMAIL]</a> – Authorized representative: [REPRESENTATIVE]</p>
-
-      <h2>Overview</h2>
-      <p class="muted">The App works without an account. Health/activity data is stored <strong>locally</strong> on
-        your device. Currently <strong>no server transfer</strong> and <strong>no tracking</strong>. Subscription
-        status (Free/Lite/Pro) is stored locally as a flag.</p>
-
-      <h2>Categories of Data</h2>
-      <ul class="muted">
-        <li>App usage data (goals/config, daily values, task progress, XP/level, streaks, achievements)</li>
-        <li>Subscription flags (plan, access rights, ads flag – no active ads now)</li>
-        <li>Permissions: optional notifications (system consent)</li>
-      </ul>
-
-      <h2>Purposes &amp; Legal Bases</h2>
-      <ol class="muted">
-        <li>App functionality (Art. 6(1)(b) GDPR)</li>
-        <li>Consent (Art. 6(1)(a) GDPR), e.g., notifications</li>
-        <li>Legitimate interests (Art. 6(1)(f) GDPR)</li>
-      </ol>
-
-      <h2>Storage / Retention</h2>
-      <p class="muted">Local on your device until you uninstall or reset the data.</p>
-
-      <h2>Recipients / Third Countries</h2>
-      <p class="muted">No external recipients, no international transfers. If we later integrate services, we’ll
-        inform you transparently and obtain any required consents.</p>
-
-      <h2>Data Subject Rights</h2>
-      <p class="muted">Rights under Arts. 15–21 GDPR. Withdraw consent anytime. You may lodge a complaint with a
-        supervisory authority.</p>
-
-      <h2>Minors</h2>
-      <p class="muted">Not intended for children under 16.</p>
-
-      <h2>Security</h2>
-      <p class="muted">Data remains local; secure your device (PIN/biometrics/updates). No system is 100% secure.</p>
-
-      <h2>Changes</h2>
-      <p class="muted">We may update this policy when features or laws change.</p>
-
-      <h2>Contact</h2>
-      <p class="muted">[NAME / COMPANY], [STREET + NO], [ZIP CITY], email: <a href="mailto:[EMAIL]">[EMAIL]</a>.</p>
-
-      <div class="links-row">
-        <a class="btn" href="terms.html">Terms of Use</a>
-        <a class="btn" href="impressum.html">Imprint</a>
-      </div>
-
-      <div class="note">Note: The app primarily processes data locally.</div>
-    </section>
-  </div>
-</main>
-
-<footer>
-  <div class="wrap foot">
-    <div>© <span id="year"></span> Health Gaming</div>
-    <div><a href="impressum.html">Impressum</a> · <a href="terms.html">Terms</a> · <a href="index.html">Start</a></div>
-  </div>
-</footer>
-
-<script>
-  const html = document.documentElement;
-  const body = document.body;
-  const deBtn = document.getElementById('btn-de');
-  const enBtn = document.getElementById('btn-en');
-
-  function setLang(lang){
-    if (lang === 'en'){ body.classList.remove('show-de'); body.classList.add('show-en'); html.lang='en';
-      deBtn.classList.remove('chip--active'); deBtn.setAttribute('aria-pressed','false');
-      enBtn.classList.add('chip--active');    enBtn.setAttribute('aria-pressed','true');
-    } else { body.classList.remove('show-en'); body.classList.add('show-de'); html.lang='de';
-      enBtn.classList.remove('chip--active'); enBtn.setAttribute('aria-pressed','false');
-      deBtn.classList.add('chip--active');    deBtn.setAttribute('aria-pressed','true');
+  <script>
+    function getLangFromUrl() {
+      const params = new URLSearchParams(window.location.search);
+      const lang = params.get("lang");
+      return lang === "de" || lang === "en" ? lang : null;
     }
-    localStorage.setItem('hg_lang', lang);
-  }
-  deBtn.addEventListener('click', () => setLang('de'));
-  enBtn.addEventListener('click', () => setLang('en'));
 
-  // init
-  document.getElementById('year').textContent = new Date().getFullYear();
-  const saved = localStorage.getItem('hg_lang');
-  if (saved) setLang(saved);
-</script>
+    function getStoredLang() {
+      const lang = localStorage.getItem("hg_lang");
+      return lang === "de" || lang === "en" ? lang : null;
+    }
+
+    function getBrowserLang() {
+      const lang = (navigator.language || "").toLowerCase();
+      return lang.startsWith("de") ? "de" : "en";
+    }
+
+    function withLang(path, lang) {
+      return `${path}?lang=${lang}`;
+    }
+
+    function updateLinks(lang) {
+      const map = [
+        ["logoLink", "index.html"],
+        ["navHome", "index.html"],
+        ["navPrivacy", "privacy.html"],
+        ["navTerms", "terms.html"],
+        ["navImprint", "impressum.html"],
+        ["deBackHome", "index.html"],
+        ["deTermsLink", "terms.html"],
+        ["deImprintLink", "impressum.html"],
+        ["enBackHome", "index.html"],
+        ["enTermsLink", "terms.html"],
+        ["enImprintLink", "impressum.html"],
+        ["footerHome", "index.html"],
+        ["footerPrivacy", "privacy.html"],
+        ["footerTerms", "terms.html"],
+        ["footerImprint", "impressum.html"]
+      ];
+
+      map.forEach(([id, path]) => {
+        const el = document.getElementById(id);
+        if (el) {
+          el.setAttribute("href", withLang(path, lang));
+        }
+      });
+    }
+
+    function updateNavTexts(lang) {
+      const navHome = document.getElementById("navHome");
+      const navPrivacy = document.getElementById("navPrivacy");
+      const navTerms = document.getElementById("navTerms");
+      const navImprint = document.getElementById("navImprint");
+      const footerHome = document.getElementById("footerHome");
+      const footerImprint = document.getElementById("footerImprint");
+
+      if (lang === "de") {
+        if (navHome) navHome.textContent = "Start";
+        if (navPrivacy) navPrivacy.textContent = "Datenschutz";
+        if (navTerms) navTerms.textContent = "Nutzungsbedingungen";
+        if (navImprint) navImprint.textContent = "Impressum";
+        if (footerHome) footerHome.textContent = "Start";
+        if (footerImprint) footerImprint.textContent = "Impressum";
+        document.title = "Datenschutzerklärung – Health Gaming";
+      } else {
+        if (navHome) navHome.textContent = "Home";
+        if (navPrivacy) navPrivacy.textContent = "Privacy";
+        if (navTerms) navTerms.textContent = "Terms";
+        if (navImprint) navImprint.textContent = "Imprint";
+        if (footerHome) footerHome.textContent = "Home";
+        if (footerImprint) footerImprint.textContent = "Imprint";
+        document.title = "Privacy Policy – Health Gaming";
+      }
+    }
+
+    function setLang(lang, updateUrl = true) {
+      document.body.classList.remove("lang-de", "lang-en");
+      document.body.classList.add(`lang-${lang}`);
+      document.documentElement.lang = lang;
+
+      localStorage.setItem("hg_lang", lang);
+
+      const deBtn = document.getElementById("btn-de");
+      const enBtn = document.getElementById("btn-en");
+
+      deBtn.classList.toggle("active", lang === "de");
+      enBtn.classList.toggle("active", lang === "en");
+
+      updateNavTexts(lang);
+      updateLinks(lang);
+
+      if (updateUrl) {
+        const url = new URL(window.location.href);
+        url.searchParams.set("lang", lang);
+        window.history.replaceState({}, "", url.toString());
+      }
+    }
+
+    document.getElementById("btn-de").addEventListener("click", () => setLang("de"));
+    document.getElementById("btn-en").addEventListener("click", () => setLang("en"));
+
+    const initialLang =
+      getLangFromUrl() ||
+      getStoredLang() ||
+      getBrowserLang();
+
+    setLang(initialLang, true);
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
