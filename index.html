@@ -4,220 +4,883 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Health Gaming – Track. Level Up. Repeat.</title>
-  <meta name="description" content="Health Gaming – Ziele setzen, Aktivitäten loggen, XP verdienen und deine Gewohnheiten gamifizieren." />
+  <meta name="description" content="Health Gaming – set goals, log activities, earn XP and gamify your habits." />
   <meta name="color-scheme" content="dark light" />
   <meta property="og:title" content="Health Gaming – Track. Level Up. Repeat." />
-  <meta property="og:description" content="Ziele, XP, Streaks & Quests. Mach deine Gesundheit zum Game." />
+  <meta property="og:description" content="Goals, XP, streaks and quests. Turn your health into a game." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://dein-domainname.tld/" />
+  <meta property="og:url" content="https://niti0225.github.io/HealthGaming/" />
+
   <style>
     :root{
       --bg:#0b0f14;
+      --bg-2:#0f141c;
       --card:#111620;
+      --card-2:#151c28;
       --muted:#98a2b3;
       --text:#e6e9ef;
       --purple:#8b5cf6;
       --teal:#22d3ee;
-      --ring:rgba(139,92,246,.35);
-      --radius:18px;
+      --line:#1b2330;
+      --ring:rgba(139,92,246,.30);
+      --radius:20px;
       --max:1200px;
+      --shadow:0 14px 40px rgba(0,0,0,.35);
     }
+
     *{box-sizing:border-box}
-    html,body{margin:0;background:
-      radial-gradient(1200px 800px at 15% -10%,rgba(34,211,238,.08),transparent 60%),
-      radial-gradient(900px 700px at 120% 0,rgba(139,92,246,.10),transparent 60%),
-      var(--bg);
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      background:
+        radial-gradient(1100px 800px at 10% -10%, rgba(34,211,238,.10), transparent 60%),
+        radial-gradient(900px 720px at 110% 0%, rgba(139,92,246,.12), transparent 60%),
+        linear-gradient(180deg, var(--bg), var(--bg-2));
       color:var(--text);
-      font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial}
+      font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;
+    }
+
     a{color:var(--teal);text-decoration:none}
     a:hover{text-decoration:underline}
+    img{max-width:100%;display:block}
     .wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
-    header{position:sticky;top:0;background:rgba(11,15,20,.7);backdrop-filter:blur(8px);
-      border-bottom:1px solid #1b2330;z-index:20}
-    nav{display:flex;align-items:center;gap:14px;height:64px}
-    .logo{display:flex;align-items:center;gap:10px;font-weight:700}
-    .dot{width:12px;height:12px;border-radius:50%;
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:50;
+      background:rgba(11,15,20,.72);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid var(--line);
+    }
+
+    nav{
+      min-height:68px;
+      display:flex;
+      align-items:center;
+      gap:14px;
+    }
+
+    .logo{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-weight:800;
+      letter-spacing:.2px;
+      color:var(--text);
+      white-space:nowrap;
+    }
+
+    .dot{
+      width:12px;
+      height:12px;
+      border-radius:50%;
       background:linear-gradient(135deg,var(--teal),var(--purple));
-      box-shadow:0 0 0 4px var(--ring)}
-    .navlinks{margin-left:auto;display:flex;gap:18px}
-    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:12px;
-      background:#0f1520;border:1px solid #263044;color:var(--text)}
-    .btn.primary{background:linear-gradient(135deg,rgba(34,211,238,.15),rgba(139,92,246,.15));
-      border-color:#2b3750;box-shadow:0 0 0 3px var(--ring)}
-    .hero{padding:64px 0 28px}
-    .hero h1{font-size:clamp(2rem,5vw,3.25rem);line-height:1.1;margin:0}
-    .sub{color:var(--muted);max-width:760px;margin-top:12px}
-    .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
-    .badges{display:flex;gap:10px;flex-wrap:wrap}
-    .badge{height:44px;padding:0 14px;border-radius:12px;border:1px dashed #2b3750;
-      display:inline-flex;align-items:center;color:var(--muted)}
-    /* Sections */
-    .section{padding:40px 0}
-    .grid{display:grid;gap:18px}
-    .features{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
-    .card{background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.01));
-      border:1px solid #1b2330;border-radius:var(--radius);padding:20px;
-      box-shadow:0 10px 40px rgba(0,0,0,.35)}
-    .card h3{margin:0 0 6px}
+      box-shadow:0 0 0 4px var(--ring);
+      flex:0 0 auto;
+    }
+
+    .navlinks{
+      margin-left:auto;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      min-height:42px;
+      padding:10px 14px;
+      border-radius:12px;
+      background:#0f1520;
+      border:1px solid #263044;
+      color:var(--text);
+      text-decoration:none;
+      font-weight:700;
+      transition:.18s ease;
+    }
+
+    .btn:hover{
+      transform:translateY(-1px);
+      text-decoration:none;
+      border-color:#34425d;
+    }
+
+    .btn.primary{
+      background:linear-gradient(135deg, rgba(34,211,238,.14), rgba(139,92,246,.16));
+      border-color:#2b3750;
+      box-shadow:0 0 0 3px var(--ring);
+    }
+
+    .btn.ghost{
+      background:transparent;
+    }
+
+    .lang-switch{
+      display:inline-flex;
+      align-items:center;
+      background:#0f1520;
+      border:1px solid #263044;
+      border-radius:999px;
+      padding:4px;
+      gap:4px;
+    }
+
+    .lang-switch button{
+      border:0;
+      background:transparent;
+      color:var(--text);
+      font-weight:800;
+      padding:8px 12px;
+      border-radius:999px;
+      cursor:pointer;
+      transition:.18s ease;
+    }
+
+    .lang-switch button.active{
+      background:linear-gradient(135deg,var(--purple),var(--teal));
+      color:white;
+    }
+
+    .hero{
+      padding:68px 0 30px;
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.15fr .85fr;
+      gap:22px;
+      align-items:stretch;
+    }
+
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.015));
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:24px;
+      box-shadow:var(--shadow);
+    }
+
+    .hero-card{
+      padding:30px;
+    }
+
+    .hero h1{
+      margin:0;
+      font-size:clamp(2.2rem,5vw,3.5rem);
+      line-height:1.05;
+      letter-spacing:-.02em;
+    }
+
+    .hero p{
+      margin:14px 0 0;
+    }
+
+    .sub{
+      color:var(--muted);
+      max-width:760px;
+      font-size:1.05rem;
+    }
+
+    .cta{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-top:24px;
+    }
+
+    .badges{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:16px;
+    }
+
+    .badge{
+      min-height:44px;
+      padding:0 14px;
+      border-radius:12px;
+      border:1px dashed #2b3750;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      color:var(--muted);
+      background:rgba(255,255,255,.015);
+    }
+
+    .hero-side{
+      display:grid;
+      gap:16px;
+    }
+
+    .mini-stat{
+      display:flex;
+      align-items:flex-start;
+      gap:12px;
+    }
+
+    .mini-icon{
+      width:42px;
+      height:42px;
+      flex:0 0 auto;
+      display:grid;
+      place-items:center;
+      border-radius:14px;
+      background:linear-gradient(135deg, rgba(139,92,246,.20), rgba(34,211,238,.18));
+      border:1px solid #2b3750;
+      font-size:1.1rem;
+    }
+
+    .mini-stat h3{
+      margin:0 0 4px;
+      font-size:1rem;
+    }
+
+    .mini-stat p{
+      margin:0;
+      color:var(--muted);
+      font-size:.95rem;
+    }
+
+    .section{
+      padding:42px 0;
+    }
+
+    .section-head{
+      display:flex;
+      align-items:end;
+      justify-content:space-between;
+      gap:16px;
+      margin-bottom:18px;
+    }
+
+    .section h2{
+      margin:0;
+      font-size:clamp(1.5rem,3vw,2rem);
+      line-height:1.1;
+    }
+
+    .section-copy{
+      color:var(--muted);
+      max-width:700px;
+    }
+
+    .grid{
+      display:grid;
+      gap:18px;
+    }
+
+    .features{
+      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    }
+
+    .feature-card h3{
+      margin:0 0 8px;
+    }
+
     .muted{color:var(--muted)}
-    .ring{box-shadow:0 0 0 3px var(--ring)}
-    /* Pricing */
-    .pricing{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
-    .price{display:flex;align-items:baseline;gap:8px;margin:6px 0 14px}
-    .price strong{font-size:1.8rem}
-    .tag{display:inline-flex;align-items:center;gap:6px;font-size:.85rem;
-      padding:6px 10px;border-radius:999px;border:1px solid #263044;background:#0f1520;color:var(--muted)}
-    ul{margin:0;padding-left:18px}
-    footer{margin-top:30px;border-top:1px solid #1b2330}
-    .foot{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center;padding:18px 0;color:var(--muted);font-size:.95rem}
-    .links{display:flex;gap:14px;flex-wrap:wrap}
-    .pill{display:inline-flex;gap:8px;align-items:center;padding:8px 12px;border-radius:999px;background:#101726;border:1px solid #223046}
-    @media (prefers-color-scheme:light){
-      :root{--bg:#f7f8fb;--card:#ffffff;--text:#0b1220;--muted:#667085}
-      header{background:#fff;border-color:#e6e9ef}
-      .card{background:#fff;border-color:#eef1f5}
-      .btn{background:#fff;border-color:#dfe3ea}
-      .btn.primary{background:#f1f6ff}
-      .badge{border-color:#dfe3ea}
-      footer{border-color:#e6e9ef}
+
+    .pricing{
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    }
+
+    .pricing .card{
+      position:relative;
+      overflow:hidden;
+    }
+
+    .pricing .featured{
+      box-shadow:0 0 0 2px var(--ring), var(--shadow);
+    }
+
+    .tag{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      font-size:.85rem;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid #263044;
+      background:#0f1520;
+      color:var(--muted);
+      font-weight:800;
+    }
+
+    .price{
+      display:flex;
+      align-items:baseline;
+      gap:8px;
+      margin:8px 0 14px;
+    }
+
+    .price strong{
+      font-size:2rem;
+      line-height:1;
+    }
+
+    ul{
+      margin:0;
+      padding-left:18px;
+    }
+
+    .download-box{
+      display:flex;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+    }
+
+    footer{
+      margin-top:24px;
+      border-top:1px solid var(--line);
+    }
+
+    .foot{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      justify-content:space-between;
+      align-items:center;
+      padding:18px 0 24px;
+      color:var(--muted);
+      font-size:.95rem;
+    }
+
+    .pill{
+      display:inline-flex;
+      gap:8px;
+      align-items:center;
+      padding:8px 12px;
+      border-radius:999px;
+      background:#101726;
+      border:1px solid #223046;
+    }
+
+    .links{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+    }
+
+    @media (max-width: 920px){
+      .hero-grid{
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media (max-width: 680px){
+      nav{
+        padding:10px 0;
+        align-items:flex-start;
+      }
+
+      .navlinks{
+        width:100%;
+        margin-left:0;
+        justify-content:flex-start;
+      }
+
+      .hero-card{
+        padding:22px;
+      }
+
+      .card{
+        padding:18px;
+      }
+    }
+
+    @media (prefers-color-scheme: light){
+      :root{
+        --bg:#f7f8fb;
+        --bg-2:#eef2f8;
+        --card:#ffffff;
+        --card-2:#ffffff;
+        --text:#0b1220;
+        --muted:#667085;
+        --line:#e6e9ef;
+        --ring:rgba(139,92,246,.14);
+        --shadow:0 12px 32px rgba(15,23,42,.08);
+      }
+
+      header{
+        background:rgba(255,255,255,.82);
+      }
+
+      .btn,
+      .lang-switch{
+        background:#fff;
+        border-color:#dfe3ea;
+      }
+
+      .btn.primary{
+        background:#f3f7ff;
+        border-color:#dbe5ff;
+      }
+
+      .badge{
+        border-color:#dfe3ea;
+        background:#fff;
+      }
+
+      .pill{
+        background:#fff;
+        border-color:#dfe3ea;
+      }
     }
   </style>
 </head>
 <body>
-  <!-- NAV -->
   <header>
     <div class="wrap">
       <nav>
-        <div class="logo"><span class="dot"></span><span>Health&nbsp;Gaming</span></div>
+        <a class="logo" href="#top" aria-label="Health Gaming Home">
+          <span class="dot"></span>
+          <span>Health Gaming</span>
+        </a>
+
         <div class="navlinks">
-          <a class="btn" href="#features">Features</a>
-          <a class="btn" href="#pricing">Preise</a>
-          <a class="btn" href="#download">Download</a>
-          <a class="btn primary" href="privacy.html">Datenschutz</a>
+          <a class="btn ghost" href="#features" data-i18n="navFeatures">Features</a>
+          <a class="btn ghost" href="#pricing" data-i18n="navPricing">Pricing</a>
+          <a class="btn ghost" href="#download" data-i18n="navDownload">Download</a>
+          <a class="btn primary" href="privacy.html" id="privacyNavLink" data-i18n="navPrivacy">Privacy</a>
+
+          <div class="lang-switch" aria-label="Language switch">
+            <button id="langDe" type="button">DE</button>
+            <button id="langEn" type="button">EN</button>
+          </div>
         </div>
       </nav>
     </div>
   </header>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="wrap">
-      <div class="card ring" style="padding:28px">
-        <h1>Track. Level Up. Repeat.</h1>
-        <p class="sub">
-          Logge Schritte, Schlaf, Wasser &amp; Workouts manuell, sammle XP und schalte Achievements frei.
-          Kein Konto, keine Cloud – <strong>alles lokal</strong>. Später erweiterbar um Abo &amp; Ads.
+  <main id="top">
+    <section class="hero">
+      <div class="wrap">
+        <div class="hero-grid">
+          <div class="card hero-card">
+            <div class="tag" data-i18n="heroTag">Habit tracking meets gamification</div>
+            <h1 data-i18n="heroTitle">Track. Level Up. Repeat.</h1>
+            <p class="sub" data-i18n="heroText">
+              Log steps, sleep, water and workouts manually, earn XP and unlock achievements.
+              No account, no cloud – everything stays local on your device.
+            </p>
+
+            <div class="cta">
+              <a class="btn primary" href="#download" data-i18n="heroBtnPrimary">Get the app</a>
+              <a class="btn" href="terms.html" id="termsHeroLink" data-i18n="heroBtnSecondary">Terms of Use</a>
+            </div>
+
+            <div class="badges">
+              <span class="badge">📱 <span data-i18n="storeGoogleSoon">Google Play – coming soon</span></span>
+              <span class="badge">🍎 <span data-i18n="storeAppleSoon">App Store – coming soon</span></span>
+            </div>
+          </div>
+
+          <div class="hero-side">
+            <div class="card">
+              <div class="mini-stat">
+                <div class="mini-icon">🎯</div>
+                <div>
+                  <h3 data-i18n="side1Title">Goals & XP</h3>
+                  <p data-i18n="side1Text">Build routines with daily goals, XP rewards and visible progress.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="mini-stat">
+                <div class="mini-icon">🏅</div>
+                <div>
+                  <h3 data-i18n="side2Title">Achievements & streaks</h3>
+                  <p data-i18n="side2Text">Stay motivated with milestones, streaks and fun progress loops.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="mini-stat">
+                <div class="mini-icon">🔒</div>
+                <div>
+                  <h3 data-i18n="side3Title">Private & local</h3>
+                  <p data-i18n="side3Text">No forced account. Your core data can stay on your device.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="features">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <h2 data-i18n="featuresTitle">Features</h2>
+            <p class="section-copy" data-i18n="featuresCopy">
+              A clean health app experience with gamified motivation, simple logging and calm design.
+            </p>
+          </div>
+        </div>
+
+        <div class="grid features">
+          <div class="card feature-card">
+            <h3 data-i18n="feature1Title">🎯 Goals & XP</h3>
+            <p class="muted" data-i18n="feature1Text">Set daily goals. Every activity gives XP. Your health becomes a game loop.</p>
+          </div>
+
+          <div class="card feature-card">
+            <h3 data-i18n="feature2Title">📝 Manual tracking</h3>
+            <p class="muted" data-i18n="feature2Text">No sensors required. Log what you did, how much and when.</p>
+          </div>
+
+          <div class="card feature-card">
+            <h3 data-i18n="feature3Title">🏅 Achievements</h3>
+            <p class="muted" data-i18n="feature3Text">Unlock badges, streaks and milestone rewards over time.</p>
+          </div>
+
+          <div class="card feature-card">
+            <h3 data-i18n="feature4Title">📈 History & insights</h3>
+            <p class="muted" data-i18n="feature4Text">Review your recent progress and long-term consistency.</p>
+          </div>
+
+          <div class="card feature-card">
+            <h3 data-i18n="feature5Title">🎨 Skins & personalization</h3>
+            <p class="muted" data-i18n="feature5Text">Unlock gradients, styles and visual rewards as you level up.</p>
+          </div>
+
+          <div class="card feature-card">
+            <h3 data-i18n="feature6Title">🔒 Local-first</h3>
+            <p class="muted" data-i18n="feature6Text">Core app usage works without forcing cloud sync or account creation.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="pricing">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <h2 data-i18n="pricingTitle">Pricing</h2>
+            <p class="section-copy" data-i18n="pricingCopy">
+              Clear plan structure for free use, ad-free usage and full access.
+            </p>
+          </div>
+        </div>
+
+        <div class="grid pricing">
+          <div class="card">
+            <span class="tag">FREE</span>
+            <div class="price">
+              <strong>€0</strong>
+              <span class="muted" data-i18n="perMonth">/month</span>
+            </div>
+            <ul class="muted">
+              <li data-i18n="free1">Core features</li>
+              <li data-i18n="free2">Achievements</li>
+              <li data-i18n="free3">History & insights locked</li>
+            </ul>
+          </div>
+
+          <div class="card featured">
+            <span class="tag">LITE</span>
+            <div class="price">
+              <strong>€1.99</strong>
+              <span class="muted" data-i18n="perMonth">/month</span>
+            </div>
+            <ul class="muted">
+              <li data-i18n="lite1">Ad-free experience</li>
+              <li data-i18n="lite2">Achievements included</li>
+              <li data-i18n="lite3">History still locked</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <span class="tag">PRO</span>
+            <div class="price">
+              <strong>€3.99</strong>
+              <span class="muted" data-i18n="perMonth">/month</span>
+            </div>
+            <ul class="muted">
+              <li data-i18n="pro1">Ad-free experience</li>
+              <li data-i18n="pro2">Full access incl. history & insights</li>
+              <li data-i18n="pro3">All premium app areas</li>
+            </ul>
+          </div>
+        </div>
+
+        <p class="muted" style="margin-top:10px" data-i18n="pricingNote">
+          Prices and features may evolve over time. Billing happens through app stores.
         </p>
-        <div class="cta">
-          <a class="btn primary" href="#download">App holen</a>
-          <a class="btn" href="terms.html">Nutzungsbedingungen</a>
+      </div>
+    </section>
+
+    <section class="section" id="download">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <h2 data-i18n="downloadTitle">Download</h2>
+            <p class="section-copy" data-i18n="downloadCopy">
+              Store links will appear here once the app is live.
+            </p>
+          </div>
         </div>
-        <div class="badges" style="margin-top:14px">
-          <a class="badge" href="#" title="Google Play (bald)">
-            <span>📱</span><span>Google&nbsp;Play – bald</span>
-          </a>
-          <a class="badge" href="#" title="App Store (bald)">
-            <span>🍎</span><span>App&nbsp;Store – bald</span>
-          </a>
+
+        <div class="card download-box">
+          <p class="muted" style="margin:0" data-i18n="downloadHint">
+            The public release links will be added here as soon as they are available.
+          </p>
+          <div class="badges" style="margin-top:0">
+            <span class="badge">📱 <span data-i18n="storeGoogleSoon">Google Play – coming soon</span></span>
+            <span class="badge">🍎 <span data-i18n="storeAppleSoon">App Store – coming soon</span></span>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
-  <!-- FEATURES -->
-  <section id="features" class="section">
-    <div class="wrap">
-      <h2 style="margin:0 0 14px">Features</h2>
-      <div class="grid features">
-        <div class="card">
-          <h3>🎯 Ziele &amp; XP</h3>
-          <p class="muted">Setze tägliche Ziele. Jede Aktivität gibt XP. Dein Fortschritt als Game.</p>
-        </div>
-        <div class="card">
-          <h3>📝 Manuelles Tracking</h3>
-          <p class="muted">Ohne Sensoren: Wähle Aktivität, Menge &amp; Einheit – fertig.</p>
-        </div>
-        <div class="card">
-          <h3>🏅 Achievements</h3>
-          <p class="muted">Streaks, tägliche Quests und Meilensteine motivieren dich langfristig.</p>
-        </div>
-        <div class="card">
-          <h3>📱 Lokal &amp; Privat</h3>
-          <p class="muted">Daten bleiben auf deinem Gerät (SharedPreferences/Local Storage).</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PRICING -->
-  <section id="pricing" class="section">
-    <div class="wrap">
-      <h2 style="margin:0 0 14px">Preise</h2>
-      <div class="grid pricing">
-        <div class="card">
-          <span class="tag">FREE</span>
-          <div class="price"><strong>€0</strong><span class="muted">/Monat</span></div>
-          <ul class="muted">
-            <li>Kernfunktionen</li>
-            <li>Achievements</li>
-            <li>History &amp; Insights gesperrt</li>
-          </ul>
-        </div>
-        <div class="card ring">
-          <span class="tag">LITE</span>
-          <div class="price"><strong>€1,99</strong><span class="muted">/Monat</span></div>
-          <ul class="muted">
-            <li>Werbefrei (falls aktiv)</li>
-            <li>Achievements</li>
-            <li>History weiterhin gesperrt</li>
-          </ul>
-        </div>
-        <div class="card">
-          <span class="tag">PRO</span>
-          <div class="price"><strong>€3,99</strong><span class="muted">/Monat</span></div>
-          <ul class="muted">
-            <li>Werbefrei (falls aktiv)</li>
-            <li>Alle Features inkl. History &amp; Insights</li>
-            <li>Priorisierte Updates</li>
-          </ul>
-        </div>
-      </div>
-      <p class="muted" style="margin-top:10px">Preise &amp; Leistungen können sich entwickeln; Abrechnung über App-Stores.</p>
-    </div>
-  </section>
-
-  <!-- DOWNLOAD -->
-  <section id="download" class="section">
-    <div class="wrap">
-      <h2 style="margin:0 0 14px">Download</h2>
-      <div class="card" style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between">
-        <p class="muted" style="margin:0">Sobald die App live ist, findest du hier die Store-Links.</p>
-        <div class="badges">
-          <a class="badge" href="#">📱 Google Play (bald)</a>
-          <a class="badge" href="#">🍎 App Store (bald)</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
   <footer>
     <div class="wrap foot">
       <div class="pill">
         <span class="dot" style="width:10px;height:10px"></span>
-        <span>© <span id="year"></span> Health&nbsp;Gaming</span>
+        <span>© <span id="year"></span> Health Gaming</span>
       </div>
+
       <div class="links">
-        <a href="privacy.html">Privacy</a>
-        <a href="terms.html">Terms</a>
-        <a href="imprint.html">Impressum</a>
-        <a href="mailto:healthgaming@hotmail.com">Kontakt</a>
+        <a href="privacy.html" id="footerPrivacy" data-i18n="footerPrivacy">Privacy</a>
+        <a href="terms.html" id="footerTerms" data-i18n="footerTerms">Terms</a>
+        <a href="impressum.html" id="footerImprint" data-i18n="footerImprint">Imprint</a>
+        <a href="mailto:healthgaming@hotmail.com" data-i18n="footerContact">Contact</a>
       </div>
     </div>
   </footer>
 
   <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
+    const translations = {
+      de: {
+        navFeatures: "Features",
+        navPricing: "Preise",
+        navDownload: "Download",
+        navPrivacy: "Datenschutz",
+
+        heroTag: "Habit-Tracking trifft Gamification",
+        heroTitle: "Track. Level Up. Repeat.",
+        heroText:
+          "Logge Schritte, Schlaf, Wasser und Workouts manuell, sammle XP und schalte Achievements frei. Kein Konto, keine Cloud – alles bleibt lokal auf deinem Gerät.",
+        heroBtnPrimary: "App entdecken",
+        heroBtnSecondary: "Nutzungsbedingungen",
+
+        storeGoogleSoon: "Google Play – bald",
+        storeAppleSoon: "App Store – bald",
+
+        side1Title: "Ziele & XP",
+        side1Text: "Baue Routinen mit Tageszielen, XP-Belohnungen und sichtbarem Fortschritt auf.",
+        side2Title: "Erfolge & Streaks",
+        side2Text: "Bleib motiviert mit Meilensteinen, Serien und motivierenden Fortschrittsloops.",
+        side3Title: "Privat & lokal",
+        side3Text: "Kein Zwangskonto. Deine Kerndaten können auf deinem Gerät bleiben.",
+
+        featuresTitle: "Features",
+        featuresCopy:
+          "Eine klare Health-App mit spielerischer Motivation, einfachem Logging und ruhigem Design.",
+
+        feature1Title: "🎯 Ziele & XP",
+        feature1Text: "Setze tägliche Ziele. Jede Aktivität gibt XP. Deine Gesundheit wird zu einem motivierenden Gameplay.",
+        feature2Title: "📝 Manuelles Tracking",
+        feature2Text: "Keine Sensoren nötig. Trage einfach ein, was du gemacht hast, wie viel und wann.",
+        feature3Title: "🏅 Achievements",
+        feature3Text: "Schalte Badges, Streaks und Belohnungen für Meilensteine frei.",
+        feature4Title: "📈 Verlauf & Insights",
+        feature4Text: "Behalte deinen kurzfristigen Fortschritt und deine langfristige Konstanz im Blick.",
+        feature5Title: "🎨 Skins & Personalisierung",
+        feature5Text: "Schalte Gradients, Styles und visuelle Belohnungen mit höheren Levels frei.",
+        feature6Title: "🔒 Lokal zuerst",
+        feature6Text: "Die Kernnutzung funktioniert ohne erzwungene Cloud-Synchronisation oder Kontoerstellung.",
+
+        pricingTitle: "Preise",
+        pricingCopy: "Klare Planstruktur für kostenlose Nutzung, werbefreie Nutzung und Vollzugriff.",
+        perMonth: "/Monat",
+
+        free1: "Kernfunktionen",
+        free2: "Achievements",
+        free3: "Verlauf & Insights gesperrt",
+
+        lite1: "Werbefreie Nutzung",
+        lite2: "Achievements inklusive",
+        lite3: "Verlauf weiterhin gesperrt",
+
+        pro1: "Werbefreie Nutzung",
+        pro2: "Voller Zugriff inkl. Verlauf & Insights",
+        pro3: "Alle Premium-Bereiche der App",
+
+        pricingNote:
+          "Preise und Leistungen können sich weiterentwickeln. Die Abrechnung erfolgt über App-Stores.",
+
+        downloadTitle: "Download",
+        downloadCopy: "Sobald die App live ist, erscheinen hier die Store-Links.",
+        downloadHint:
+          "Die öffentlichen Release-Links werden hier ergänzt, sobald sie verfügbar sind.",
+
+        footerPrivacy: "Datenschutz",
+        footerTerms: "Nutzungsbedingungen",
+        footerImprint: "Impressum",
+        footerContact: "Kontakt"
+      },
+
+      en: {
+        navFeatures: "Features",
+        navPricing: "Pricing",
+        navDownload: "Download",
+        navPrivacy: "Privacy",
+
+        heroTag: "Habit tracking meets gamification",
+        heroTitle: "Track. Level Up. Repeat.",
+        heroText:
+          "Log steps, sleep, water and workouts manually, earn XP and unlock achievements. No account, no cloud – everything stays local on your device.",
+        heroBtnPrimary: "Explore the app",
+        heroBtnSecondary: "Terms of Use",
+
+        storeGoogleSoon: "Google Play – coming soon",
+        storeAppleSoon: "App Store – coming soon",
+
+        side1Title: "Goals & XP",
+        side1Text: "Build routines with daily goals, XP rewards and visible progress.",
+        side2Title: "Achievements & streaks",
+        side2Text: "Stay motivated with milestones, streaks and rewarding progress loops.",
+        side3Title: "Private & local",
+        side3Text: "No forced account. Your core data can stay on your device.",
+
+        featuresTitle: "Features",
+        featuresCopy:
+          "A clean health app experience with gamified motivation, simple logging and calm design.",
+
+        feature1Title: "🎯 Goals & XP",
+        feature1Text: "Set daily goals. Every activity gives XP. Your health becomes a rewarding gameplay loop.",
+        feature2Title: "📝 Manual tracking",
+        feature2Text: "No sensors required. Just log what you did, how much and when.",
+        feature3Title: "🏅 Achievements",
+        feature3Text: "Unlock badges, streaks and milestone rewards over time.",
+        feature4Title: "📈 History & insights",
+        feature4Text: "Review your short-term progress and long-term consistency.",
+        feature5Title: "🎨 Skins & personalization",
+        feature5Text: "Unlock gradients, styles and visual rewards as you level up.",
+        feature6Title: "🔒 Local-first",
+        feature6Text: "Core app usage works without forcing cloud sync or account creation.",
+
+        pricingTitle: "Pricing",
+        pricingCopy:
+          "Clear plan structure for free use, ad-free usage and full access.",
+        perMonth: "/month",
+
+        free1: "Core features",
+        free2: "Achievements",
+        free3: "History & insights locked",
+
+        lite1: "Ad-free experience",
+        lite2: "Achievements included",
+        lite3: "History still locked",
+
+        pro1: "Ad-free experience",
+        pro2: "Full access incl. history & insights",
+        pro3: "All premium app areas",
+
+        pricingNote:
+          "Prices and features may evolve over time. Billing happens through app stores.",
+
+        downloadTitle: "Download",
+        downloadCopy: "Store links will appear here once the app is live.",
+        downloadHint:
+          "The public release links will be added here as soon as they are available.",
+
+        footerPrivacy: "Privacy",
+        footerTerms: "Terms",
+        footerImprint: "Imprint",
+        footerContact: "Contact"
+      }
+    };
+
+    function getLangFromUrl() {
+      const params = new URLSearchParams(window.location.search);
+      const lang = params.get("lang");
+      return lang === "de" || lang === "en" ? lang : null;
+    }
+
+    function getStoredLang() {
+      const lang = localStorage.getItem("hg_lang");
+      return lang === "de" || lang === "en" ? lang : null;
+    }
+
+    function getBrowserLang() {
+      const lang = (navigator.language || "").toLowerCase();
+      return lang.startsWith("de") ? "de" : "en";
+    }
+
+    function buildPageUrl(path, lang) {
+      return `${path}?lang=${lang}`;
+    }
+
+    function updateLinkedPages(lang) {
+      const ids = [
+        ["privacyNavLink", "privacy.html"],
+        ["termsHeroLink", "terms.html"],
+        ["footerPrivacy", "privacy.html"],
+        ["footerTerms", "terms.html"],
+        ["footerImprint", "impressum.html"]
+      ];
+
+      ids.forEach(([id, path]) => {
+        const el = document.getElementById(id);
+        if (el) el.setAttribute("href", buildPageUrl(path, lang));
+      });
+    }
+
+    function applyTranslations(lang) {
+      const t = translations[lang] || translations.en;
+
+      document.documentElement.lang = lang;
+      localStorage.setItem("hg_lang", lang);
+
+      document.querySelectorAll("[data-i18n]").forEach(el => {
+        const key = el.getAttribute("data-i18n");
+        if (t[key]) el.textContent = t[key];
+      });
+
+      document.title =
+        lang === "de"
+          ? "Health Gaming – Track. Level Up. Repeat."
+          : "Health Gaming – Track. Level Up. Repeat.";
+
+      updateLinkedPages(lang);
+
+      document.getElementById("langDe").classList.toggle("active", lang === "de");
+      document.getElementById("langEn").classList.toggle("active", lang === "en");
+    }
+
+    function setLang(lang, updateUrl = true) {
+      applyTranslations(lang);
+
+      if (updateUrl) {
+        const url = new URL(window.location.href);
+        url.searchParams.set("lang", lang);
+        window.history.replaceState({}, "", url.toString());
+      }
+    }
+
+    document.getElementById("langDe").addEventListener("click", () => setLang("de"));
+    document.getElementById("langEn").addEventListener("click", () => setLang("en"));
+
+    const initialLang =
+      getLangFromUrl() ||
+      getStoredLang() ||
+      getBrowserLang();
+
+    setLang(initialLang, true);
+    document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
