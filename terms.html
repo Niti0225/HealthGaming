@@ -4,235 +4,954 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Nutzungsbedingungen / Terms of Use – Health Gaming</title>
-  <meta name="description" content="Nutzungsbedingungen / Terms of Use für die App Health Gaming." />
+  <meta name="description" content="Nutzungsbedingungen und Terms of Use für Health Gaming." />
   <meta name="color-scheme" content="dark light" />
-  <link rel="icon" href="favicon.ico" />
+
   <style>
     :root{
-      --bg:#0b0f14; --surface:#0f1520; --card:#121a27; --text:#e7ebf2; --muted:#a0a8b8; --line:#1e2a3d;
-      --purple:#8b5cf6; --teal:#22d3ee;
-      --chip-bg:transparent; --chip-border:#2a3650; --chip-text:var(--text);
-      --chip-bg-hover:rgba(255,255,255,.04); --chip-border-hover:#395070;
-      --radius:16px; --max:900px; --shadow:0 0 0 1px var(--line);
-      --ring:0 0 0 6px color-mix(in srgb, var(--teal) 22%, transparent);
+      --bg:#0b0f14;
+      --bg-2:#0f141c;
+      --surface:#101726;
+      --card:#121a27;
+      --text:#e7ebf2;
+      --muted:#9ea8ba;
+      --line:#1f2a3c;
+      --purple:#8b5cf6;
+      --teal:#22d3ee;
+      --radius:20px;
+      --max:980px;
+      --ring:rgba(139,92,246,.18);
+      --shadow:0 14px 40px rgba(0,0,0,.30);
     }
-    @media (prefers-color-scheme: light){
-      :root{
-        --bg:#f7f9fc; --surface:#ffffff; --card:#ffffff; --text:#0b1220; --muted:#667085; --line:#e6e9ef;
-        --chip-bg:transparent; --chip-border:#cfd6e4; --chip-text:#0b1220;
-        --chip-bg-hover:#f3f6fb; --chip-border-hover:#b8c3d8;
-        --shadow:0 1px 0 0 var(--line);
-        --ring:0 0 0 6px color-mix(in srgb, var(--teal) 28%, transparent);
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      background:
+        radial-gradient(1100px 760px at 10% -10%, rgba(34,211,238,.10), transparent 60%),
+        radial-gradient(920px 700px at 110% 0%, rgba(139,92,246,.12), transparent 60%),
+        linear-gradient(180deg, var(--bg), var(--bg-2));
+      color:var(--text);
+      font:16px/1.65 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;
+    }
+
+    a{color:var(--teal);text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    .wrap{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:0 20px;
+    }
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:40;
+      background:rgba(11,15,20,.74);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid var(--line);
+    }
+
+    .nav{
+      min-height:68px;
+      display:flex;
+      align-items:center;
+      gap:14px;
+      flex-wrap:wrap;
+      padding:10px 0;
+    }
+
+    .logo{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-weight:800;
+      color:var(--text);
+      white-space:nowrap;
+    }
+
+    .dot{
+      width:12px;
+      height:12px;
+      border-radius:50%;
+      background:linear-gradient(135deg,var(--teal),var(--purple));
+      box-shadow:0 0 0 4px var(--ring);
+      flex:0 0 auto;
+    }
+
+    .navlinks{
+      margin-left:auto;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      min-height:42px;
+      padding:10px 14px;
+      border-radius:12px;
+      background:#0f1520;
+      border:1px solid #2a3650;
+      color:var(--text);
+      text-decoration:none;
+      font-weight:700;
+      transition:.18s ease;
+      cursor:pointer;
+    }
+
+    .btn:hover{
+      text-decoration:none;
+      transform:translateY(-1px);
+      border-color:#395070;
+      background:#131b28;
+    }
+
+    .btn.primary{
+      background:linear-gradient(135deg, rgba(34,211,238,.14), rgba(139,92,246,.16));
+      box-shadow:0 0 0 3px var(--ring);
+    }
+
+    .btn.active{
+      border-color:var(--teal);
+      box-shadow:0 0 0 2px rgba(34,211,238,.18);
+    }
+
+    .lang-switch{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      padding:4px;
+      border-radius:999px;
+      border:1px solid #2a3650;
+      background:#0f1520;
+    }
+
+    .lang-switch button{
+      border:0;
+      background:transparent;
+      color:var(--text);
+      font-weight:800;
+      padding:8px 12px;
+      border-radius:999px;
+      cursor:pointer;
+      transition:.18s ease;
+    }
+
+    .lang-switch button.active{
+      background:linear-gradient(135deg,var(--purple),var(--teal));
+      color:white;
+    }
+
+    main{
+      padding:34px 0 44px;
+    }
+
+    .hero{
+      margin-bottom:20px;
+    }
+
+    .hero-card{
+      background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.015));
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:28px;
+    }
+
+    .tag{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      font-size:.85rem;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid #2a3650;
+      background:#0f1520;
+      color:var(--muted);
+      font-weight:800;
+      margin-bottom:12px;
+    }
+
+    h1{
+      margin:0 0 8px;
+      font-size:clamp(2rem,4vw,2.8rem);
+      line-height:1.08;
+      letter-spacing:-.02em;
+    }
+
+    .sub{
+      margin:0;
+      color:var(--muted);
+      font-size:1rem;
+    }
+
+    .meta{
+      margin-top:14px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      color:var(--muted);
+      font-size:.95rem;
+    }
+
+    .content-card{
+      background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.015));
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:24px;
+    }
+
+    h2{
+      margin:24px 0 8px;
+      font-size:1.08rem;
+      line-height:1.3;
+    }
+
+    h2:first-child{margin-top:0}
+
+    p, li{
+      color:var(--muted);
+    }
+
+    strong{
+      color:var(--text);
+    }
+
+    ul, ol{
+      margin:0;
+      padding-left:20px;
+    }
+
+    .notice{
+      margin-top:18px;
+      padding:14px 16px;
+      border-radius:14px;
+      border:1px dashed #35506d;
+      background:rgba(255,255,255,.015);
+      color:var(--muted);
+    }
+
+    .link-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:22px;
+    }
+
+    footer{
+      border-top:1px solid var(--line);
+      margin-top:28px;
+    }
+
+    .foot{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      justify-content:space-between;
+      align-items:center;
+      padding:18px 0 24px;
+      color:var(--muted);
+      font-size:.95rem;
+    }
+
+    .foot-links{
+      display:flex;
+      flex-wrap:wrap;
+      gap:14px;
+    }
+
+    [data-lang-block]{
+      display:none;
+    }
+
+    body.lang-de [data-lang-block="de"]{
+      display:block;
+    }
+
+    body.lang-en [data-lang-block="en"]{
+      display:block;
+    }
+
+    @media (max-width: 760px){
+      .nav{
+        align-items:flex-start;
+      }
+
+      .navlinks{
+        margin-left:0;
+        width:100%;
+        justify-content:flex-start;
+      }
+
+      .hero-card,
+      .content-card{
+        padding:20px;
       }
     }
-    *{box-sizing:border-box} html,body{margin:0;height:100%}
-    body{
-      background:
-        radial-gradient(900px 600px at -10% -20%, color-mix(in srgb, var(--teal) 10%, transparent) 0%, transparent 60%),
-        radial-gradient(800px 500px at 110% 0%, color-mix(in srgb, var(--purple) 12%, transparent) 0%, transparent 60%),
-        var(--bg);
-      color:var(--text); font:16px/1.65 system-ui,-apple-system,Segoe UI,Inter,Roboto,Arial;
+
+    @media (prefers-color-scheme: light){
+      :root{
+        --bg:#f7f8fb;
+        --bg-2:#eef2f8;
+        --surface:#ffffff;
+        --card:#ffffff;
+        --text:#0b1220;
+        --muted:#667085;
+        --line:#e6e9ef;
+        --ring:rgba(139,92,246,.12);
+        --shadow:0 12px 32px rgba(15,23,42,.08);
+      }
+
+      header{
+        background:rgba(255,255,255,.84);
+      }
+
+      .btn,
+      .lang-switch,
+      .tag{
+        background:#fff;
+        border-color:#dbe2ec;
+      }
+
+      .btn:hover{
+        background:#f8fbff;
+      }
+
+      .btn.primary{
+        background:#f3f7ff;
+      }
+
+      .notice{
+        background:#fff;
+        border-color:#c9d7e7;
+      }
     }
-    a{color:var(--teal);text-decoration:none} a:hover{text-decoration:underline}
-    header{position:sticky; top:0; z-index:10; backdrop-filter:blur(10px);
-      background:color-mix(in srgb, var(--surface) 70%, transparent); border-bottom:1px solid var(--line)}
-    .wrap{max-width:var(--max); margin:0 auto; padding:0 20px}
-    .nav{display:flex; align-items:center; gap:12px; padding:14px 0}
-    .logo{display:flex; align-items:center; gap:10px; font-weight:700}
-    .dot{width:12px;height:12px;border-radius:50%;
-      background:conic-gradient(from 0deg, var(--teal), var(--purple)); box-shadow:var(--ring)}
-    .chip{display:inline-flex; align-items:center; justify-content:center; padding:8px 12px; border-radius:12px;
-      border:1px solid var(--chip-border); background:var(--chip-bg); color:var(--chip-text);
-      transition:background .18s, border-color .18s, transform .06s}
-    .chip:hover{background:var(--chip-bg-hover); border-color:var(--chip-border-hover)} .chip:active{transform:translateY(1px)}
-    .chip--active{border-color:color-mix(in srgb, var(--teal) 55%, var(--chip-border)); box-shadow:0 0 0 2px color-mix(in srgb, var(--teal) 30%, transparent)}
-    main{padding:32px 0}
-    h1{font-size:clamp(1.9rem,3.4vw,2.3rem); margin:0 0 6px}
-    .sub{color:var(--muted); margin:0 0 18px}
-    .card{background:var(--card); border:1px solid var(--line); border-radius:var(--radius); padding:22px; box-shadow:var(--shadow)}
-    h2{font-size:1.05rem; letter-spacing:.02em; margin:20px 0 8px}
-    .muted{color:var(--muted)} .note{margin-top:18px; padding:12px; border:1px dashed var(--chip-border); border-radius:12px; color:var(--muted)}
-    .links-row{margin-top:14px; display:flex; gap:12px; flex-wrap:wrap}
-    .btn{padding:10px 14px; border-radius:12px; border:1px solid var(--chip-border); background:var(--surface); color:var(--chip-text)}
-    .btn:hover{background:var(--chip-bg-hover)}
-    footer{border-top:1px solid var(--line); margin-top:28px}
-    .foot{display:flex; justify-content:space-between; align-items:center; padding:14px 0; color:var(--muted); font-size:.95rem}
-    /* language visibility */
-    [data-i18n]{display:none}
-    .show-de [data-i18n="de"]{display:block}
-    .show-en [data-i18n="en"]{display:block}
   </style>
 </head>
-<body class="show-de">
-<header>
-  <div class="wrap nav">
-    <div class="logo"><span class="dot"></span> Health&nbsp;Gaming</div>
-    <div style="margin-left:auto; display:flex; gap:8px; flex-wrap:wrap">
-      <a class="chip" href="index.html">Start</a>
-      <a class="chip" href="privacy.html">Privacy</a>
-      <a class="chip chip--active" href="#" aria-current="page">Terms</a>
-      <a class="chip" href="impressum.html">Impressum</a>
-      <button class="chip" id="btn-de" type="button" aria-pressed="true">DE</button>
-      <button class="chip" id="btn-en" type="button" aria-pressed="false">EN</button>
+<body class="lang-de">
+  <header>
+    <div class="wrap">
+      <div class="nav">
+        <a class="logo" href="index.html" id="logoLink" aria-label="Health Gaming Home">
+          <span class="dot"></span>
+          <span>Health Gaming</span>
+        </a>
+
+        <div class="navlinks">
+          <a class="btn" href="index.html" id="navHome">Start</a>
+          <a class="btn" href="privacy.html" id="navPrivacy">Datenschutz</a>
+          <a class="btn primary" href="terms.html" id="navTerms">Nutzungsbedingungen</a>
+          <a class="btn" href="impressum.html" id="navImprint">Impressum</a>
+
+          <div class="lang-switch" aria-label="Language switch">
+            <button id="btn-de" type="button">DE</button>
+            <button id="btn-en" type="button">EN</button>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-</header>
+  </header>
 
-<main>
-  <div class="wrap">
-    <h1>Nutzungsbedingungen / Terms of Use</h1>
-    <p class="sub"><span id="date">08.11.2025</span></p>
+  <main>
+    <div class="wrap">
+      <section class="hero">
+        <div class="hero-card">
+          <div class="tag" data-lang-block="de">Nutzungsregeln & Abo-Infos</div>
+          <div class="tag" data-lang-block="en">Terms & subscription info</div>
 
-    <section class="card" data-i18n="de">
-      <h2>Nutzungsbedingungen (Terms of Use)</h2>
-      <p class="muted"><strong>Anbieter</strong>: [NAME / FIRMA], [STRAßE + NR], [PLZ ORT], E-Mail:
-        <a href="mailto:[E-MAIL]">[E-MAIL]</a></p>
+          <h1 data-lang-block="de">Nutzungsbedingungen</h1>
+          <h1 data-lang-block="en">Terms of Use</h1>
 
-      <h2>Kein medizinischer Rat</h2>
-      <p class="muted">Gamification-/Motivations-Tool; keine medizinische Beratung/Diagnose/Behandlung.</p>
+          <p class="sub" data-lang-block="de">
+            Hier findest du die rechtlichen Bedingungen für die Nutzung von Health Gaming,
+            inklusive Informationen zu Free, Lite und Pro.
+          </p>
+          <p class="sub" data-lang-block="en">
+            Here you can find the legal conditions for using Health Gaming,
+            including information about Free, Lite and Pro.
+          </p>
 
-      <h2>Funktionsumfang &amp; Kontolos</h2>
-      <p class="muted">Ziele/Aktivitäten lokal speichern; kein Konto, keine Cloud-Synchronisation derzeit.</p>
+          <div class="meta">
+            <span data-lang-block="de">Letzte Aktualisierung: <strong id="dateDe">02.04.2026</strong></span>
+            <span data-lang-block="en">Last updated: <strong id="dateEn">02.04.2026</strong></span>
+          </div>
+        </div>
+      </section>
 
-      <h2>Abomodelle und Leistungen</h2>
-      <ul class="muted">
-        <li><strong>FREE:</strong> Basisfunktionen; Achievements frei; History/Insights gesperrt; Werbung technisch möglich.</li>
-        <li><strong>LITE (€1,99/Monat):</strong> Keine Werbung (falls später aktiv), Achievements frei; History gesperrt.</li>
-        <li><strong>PRO (€3,99/Monat):</strong> Keine Werbung (falls später aktiv), voller Zugang inkl. History &amp; Insights.</li>
-      </ul>
-      <p class="muted">Käufe ggf. über App-Stores; deren Bedingungen gelten.</p>
+      <section class="content-card" data-lang-block="de">
+        <h2>1. Anbieter</h2>
+        <p>
+          Anbieter der App und dieser Website ist:
+        </p>
+        <p>
+          <strong>[DEIN NAME / FIRMA]</strong><br>
+          [STRASSE / NR.]<br>
+          [PLZ ORT], Deutschland<br>
+          E-Mail: <a href="mailto:[DEINE E-MAIL]">[DEINE E-MAIL]</a>
+        </p>
 
-      <h2>Abrechnung, Verlängerung, Kündigung</h2>
-      <p class="muted">Abos verlängern sich automatisch bis zur Kündigung im Store; Erstattungen nach Store-Regeln/ Gesetz.</p>
+        <h2>2. Geltungsbereich</h2>
+        <p>
+          Diese Nutzungsbedingungen gelten für die Nutzung der App Health Gaming
+          sowie der dazugehörigen Website, soweit dort auf diese Bedingungen Bezug genommen wird.
+        </p>
 
-      <h2>Benutzerverhalten / Verbotene Handlungen</h2>
-      <ul class="muted">
-        <li>rechtswidrige Inhalte</li><li>Eingriffe in Sicherheit/Funktion</li><li>unzulässiges Reverse Engineering</li>
-        <li>automatisiertes Auslesen</li><li>Rechtsverletzungen Dritter</li>
-      </ul>
+        <h2>3. Beschreibung der App</h2>
+        <p>
+          Health Gaming ist eine App zur Motivation, Selbstorganisation und spielerischen Begleitung
+          von Alltagsgewohnheiten. Nutzer können insbesondere:
+        </p>
+        <ul>
+          <li>Ziele für Schritte, Wasser und Schlaf festlegen</li>
+          <li>Werte manuell eintragen</li>
+          <li>To-dos und Daily Goals verwalten</li>
+          <li>XP verdienen und Level aufsteigen</li>
+          <li>Streaks, Quests und Achievements nutzen</li>
+          <li>Skins, Personalisierung und Anzeigeoptionen verwenden</li>
+        </ul>
 
-      <h2>Verfügbarkeit &amp; Änderungen</h2>
-      <p class="muted">Wartungen/Updates möglich; Funktionen können angepasst werden, soweit zumutbar.</p>
+        <h2>4. Kein medizinischer Rat</h2>
+        <p>
+          Die App dient ausschließlich der Selbstorganisation, Motivation und spielerischen Darstellung von Fortschritten.
+          Sie stellt <strong>keine medizinische, therapeutische oder diagnostische Beratung</strong> dar
+          und ersetzt keine professionelle ärztliche oder fachliche Einschätzung.
+        </p>
 
-      <h2>Haftung</h2>
-      <p class="muted">Unbeschränkt bei Vorsatz/grober Fahrlässigkeit; sonst begrenzt auf typische Schäden bei Kardinalpflichten;
-        Leben/Körper/Gesundheit unberührt.</p>
+        <h2>5. Nutzung ohne Konto</h2>
+        <p>
+          Die App ist in ihrer derzeitigen Grundstruktur grundsätzlich ohne Benutzerkonto nutzbar.
+          Viele Daten werden lokal auf dem Gerät gespeichert.
+          Ein Anspruch auf Cloud-Synchronisation oder serverseitige Speicherung besteht nicht,
+          sofern dies nicht ausdrücklich angeboten wird.
+        </p>
 
-      <h2>Gewährleistung</h2>
-      <p class="muted">Gesetzliche Gewährleistungsrechte.</p>
+        <h2>6. Free-, Lite- und Pro-Plan</h2>
+        <p>Die App kann in verschiedenen Nutzungsmodellen angeboten werden:</p>
+        <ul>
+          <li><strong>Free:</strong> kostenlose Basisnutzung mit Kernfunktionen</li>
+          <li><strong>Lite:</strong> erweiterte Nutzung zu einem kostenpflichtigen monatlichen Preis</li>
+          <li><strong>Pro:</strong> voller Zugriff auf zusätzliche Premiumfunktionen</li>
+        </ul>
 
-      <h2>Laufzeit &amp; Kündigung</h2>
-      <p class="muted">Nutzung jederzeit beendbar (Deinstallation). Bei Verstößen Einschränkung/Beendigung möglich.</p>
+        <h2>7. Leistungsübersicht</h2>
+        <p>Nach aktuellem Konzept gelten insbesondere folgende Unterschiede:</p>
+        <ul>
+          <li><strong>Free:</strong> Kernfunktionen; Achievements verfügbar; History/Insights gesperrt; Werbung kann technisch vorgesehen sein</li>
+          <li><strong>Lite:</strong> keine Werbung, soweit Werbefunktionen aktiv sind; Achievements verfügbar; History bleibt gesperrt</li>
+          <li><strong>Pro:</strong> keine Werbung, soweit Werbefunktionen aktiv sind; voller Zugang inklusive History und Insights</li>
+        </ul>
+        <p>
+          Der genaue Funktionsumfang kann sich weiterentwickeln.
+          Maßgeblich ist jeweils die konkrete Beschreibung innerhalb der App oder im Store.
+        </p>
 
-      <h2>Recht, Streitbeilegung</h2>
-      <p class="muted">Deutsches Recht (ohne UN-Kaufrecht). EU-ODR: <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener">https://ec.europa.eu/consumers/odr/</a>. Keine Teilnahmeverpflichtung an Schlichtung.</p>
+        <h2>8. Preise</h2>
+        <p>
+          Nach deinem aktuellen Konzept gelten derzeit folgende Preise:
+        </p>
+        <ul>
+          <li><strong>Lite:</strong> 1,99 € pro Monat</li>
+          <li><strong>Pro:</strong> 3,99 € pro Monat</li>
+        </ul>
+        <p>
+          Alle Preise verstehen sich inklusive gesetzlicher Umsatzsteuer, soweit anwendbar.
+          Preisänderungen für zukünftige Zeiträume bleiben vorbehalten, soweit rechtlich zulässig.
+        </p>
 
-      <h2>Änderungen</h2>
-      <p class="muted">Anpassungen aus sachlichem Grund möglich; wesentliche Änderungen kommunizieren wir in der App.</p>
+        <h2>9. In-App-Käufe und Abrechnung</h2>
+        <p>
+          Kostenpflichtige Pläne oder digitale Inhalte können über den jeweiligen App-Store
+          (z. B. Google Play oder Apple App Store) abgerechnet werden.
+          In diesem Fall erfolgt die Zahlungsabwicklung über den jeweiligen Plattformanbieter.
+        </p>
+        <p>
+          Zusätzlich gelten die Vertragsbedingungen und Zahlungsrichtlinien des jeweiligen App-Stores.
+        </p>
 
-      <h2>Kontakt</h2>
-      <p class="muted"><strong>[NAME / FIRMA]</strong> – [STRAßE + NR], [PLZ ORT], E-Mail: <a href="mailto:[E-MAIL]">[E-MAIL]</a></p>
+        <h2>10. Verlängerung, Kündigung, Widerruf</h2>
+        <p>
+          Soweit Abonnements angeboten werden, verlängern sie sich in der Regel automatisch,
+          sofern sie nicht rechtzeitig über den jeweiligen App-Store gekündigt werden.
+        </p>
+        <p>
+          Die Verwaltung, Kündigung und gegebenenfalls Erstattung erfolgen grundsätzlich
+          nach den Regeln des jeweiligen Stores und den gesetzlichen Vorschriften.
+        </p>
 
-      <div class="links-row">
-        <a class="btn" href="privacy.html">Datenschutz</a>
-        <a class="btn" href="impressum.html">Impressum</a>
+        <h2>11. Verfügbarkeit</h2>
+        <p>
+          Wir bemühen uns um eine möglichst unterbrechungsfreie Verfügbarkeit der App.
+          Ein Anspruch auf ununterbrochene Verfügbarkeit besteht jedoch nicht.
+          Wartungen, Updates, technische Störungen oder Änderungen von Plattformdiensten
+          können die Nutzung zeitweise einschränken.
+        </p>
+
+        <h2>12. Änderungen der App</h2>
+        <p>
+          Wir dürfen Funktionen weiterentwickeln, anpassen, erweitern oder in zumutbarem Umfang verändern,
+          soweit dadurch der Charakter der App nicht unangemessen beeinträchtigt wird.
+        </p>
+
+        <h2>13. Zulässige Nutzung</h2>
+        <p>Du verpflichtest dich, die App nur im Rahmen der geltenden Gesetze zu nutzen.</p>
+        <p>Insbesondere sind untersagt:</p>
+        <ul>
+          <li>missbräuchliche oder rechtswidrige Nutzung</li>
+          <li>Manipulation der App, ihrer Sicherheitsmechanismen oder ihres Systems</li>
+          <li>automatisiertes Auslesen oder massenhafte missbräuchliche Nutzung</li>
+          <li>Reverse Engineering, soweit gesetzlich nicht ausdrücklich erlaubt</li>
+          <li>Nutzung in einer Weise, die Rechte Dritter verletzt</li>
+        </ul>
+
+        <h2>14. Geistiges Eigentum</h2>
+        <p>
+          Die App, die Website, das Design, die Inhalte, Texte, Grafiken, Marken, Logos,
+          Softwarebestandteile und sonstigen Elemente sind urheberrechtlich
+          und/oder anderweitig rechtlich geschützt.
+        </p>
+        <p>
+          Soweit nicht ausdrücklich erlaubt, dürfen diese Inhalte nicht vervielfältigt,
+          verbreitet, bearbeitet oder öffentlich zugänglich gemacht werden.
+        </p>
+
+        <h2>15. Nutzerinhalte</h2>
+        <p>
+          Soweit du eigene Inhalte wie Aufgabenbezeichnungen, Anzeigenamen oder Texte einträgst,
+          bleibst du für diese Inhalte selbst verantwortlich.
+          Du versicherst, dass du keine rechtswidrigen oder fremde Rechte verletzenden Inhalte verwendest.
+        </p>
+
+        <h2>16. Haftung</h2>
+        <p>
+          Wir haften unbeschränkt bei Vorsatz und grober Fahrlässigkeit
+          sowie bei Schäden aus der Verletzung von Leben, Körper oder Gesundheit.
+        </p>
+        <p>
+          Bei leichter Fahrlässigkeit haften wir nur bei Verletzung wesentlicher Vertragspflichten
+          (Kardinalpflichten) und der Höhe nach begrenzt auf den typischerweise vorhersehbaren Schaden.
+        </p>
+        <p>
+          Im Übrigen ist die Haftung ausgeschlossen, soweit gesetzlich zulässig.
+        </p>
+
+        <h2>17. Gewährleistung</h2>
+        <p>
+          Es gelten die gesetzlichen Gewährleistungsrechte für digitale Produkte,
+          soweit diese anwendbar sind.
+        </p>
+
+        <h2>18. Laufzeit und Beendigung</h2>
+        <p>
+          Du kannst die Nutzung der App jederzeit beenden, indem du sie nicht weiter verwendest
+          oder von deinem Gerät entfernst.
+        </p>
+        <p>
+          Wir können die Nutzung einschränken oder beenden,
+          wenn schwerwiegende Verstöße gegen diese Bedingungen vorliegen.
+        </p>
+
+        <h2>19. Verbraucherstreitbeilegung</h2>
+        <p>
+          Plattform der EU-Kommission zur Online-Streitbeilegung:
+          <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener">
+            https://ec.europa.eu/consumers/odr/
+          </a>
+        </p>
+        <p>
+          Wir sind nicht verpflichtet und grundsätzlich nicht bereit,
+          an einem Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.
+        </p>
+
+        <h2>20. Anwendbares Recht</h2>
+        <p>
+          Es gilt deutsches Recht unter Ausschluss des UN-Kaufrechts,
+          soweit dem keine zwingenden Verbraucherschutzvorschriften entgegenstehen.
+        </p>
+
+        <h2>21. Änderungen dieser Nutzungsbedingungen</h2>
+        <p>
+          Wir können diese Nutzungsbedingungen aus sachlichem Grund anpassen,
+          insbesondere bei rechtlichen Änderungen, neuen Funktionen,
+          Weiterentwicklungen der App oder Änderungen technischer Abläufe.
+        </p>
+
+        <h2>22. Kontakt</h2>
+        <p>
+          Fragen zu diesen Bedingungen kannst du an folgende Adresse richten:
+        </p>
+        <p>
+          <strong>[DEIN NAME / FIRMA]</strong><br>
+          E-Mail: <a href="mailto:[DEINE E-MAIL]">[DEINE E-MAIL]</a>
+        </p>
+
+        <div class="link-row">
+          <a class="btn" href="index.html" id="deBackHome">Zur Startseite</a>
+          <a class="btn" href="privacy.html" id="dePrivacyLink">Datenschutz</a>
+          <a class="btn" href="impressum.html" id="deImprintLink">Impressum</a>
+        </div>
+
+        <div class="notice">
+          Hinweis: Vor Veröffentlichung solltest du die Platzhalterdaten ersetzen
+          und die Texte noch einmal mit deinen finalen Store- und Geschäftsangaben abgleichen.
+        </div>
+      </section>
+
+      <section class="content-card" data-lang-block="en">
+        <h2>1. Provider</h2>
+        <p>
+          The provider of the app and this website is:
+        </p>
+        <p>
+          <strong>[YOUR NAME / COMPANY]</strong><br>
+          [STREET / NO.]<br>
+          [ZIP CITY], Germany<br>
+          Email: <a href="mailto:[YOUR EMAIL]">[YOUR EMAIL]</a>
+        </p>
+
+        <h2>2. Scope</h2>
+        <p>
+          These Terms of Use apply to the use of the Health Gaming app
+          and the related website where these terms are referenced.
+        </p>
+
+        <h2>3. Description of the app</h2>
+        <p>
+          Health Gaming is an app for motivation, self-organization
+          and gamified support of everyday habits. Users can in particular:
+        </p>
+        <ul>
+          <li>set goals for steps, water and sleep</li>
+          <li>log values manually</li>
+          <li>manage to-dos and daily goals</li>
+          <li>earn XP and level up</li>
+          <li>use streaks, quests and achievements</li>
+          <li>use skins, personalization and display options</li>
+        </ul>
+
+        <h2>4. No medical advice</h2>
+        <p>
+          The app is intended solely for self-organization, motivation and playful progress tracking.
+          It does <strong>not constitute medical, therapeutic or diagnostic advice</strong>
+          and does not replace professional medical or specialist guidance.
+        </p>
+
+        <h2>5. Use without an account</h2>
+        <p>
+          In its current basic structure, the app can generally be used without a user account.
+          Many data points are stored locally on the device.
+          There is no entitlement to cloud synchronization or server-side storage
+          unless this is expressly offered.
+        </p>
+
+        <h2>6. Free, Lite and Pro plans</h2>
+        <p>The app may be offered in different usage models:</p>
+        <ul>
+          <li><strong>Free:</strong> free basic use with core features</li>
+          <li><strong>Lite:</strong> extended use at a paid monthly price</li>
+          <li><strong>Pro:</strong> full access to additional premium features</li>
+        </ul>
+
+        <h2>7. Overview of services</h2>
+        <p>According to the current concept, the following differences apply in particular:</p>
+        <ul>
+          <li><strong>Free:</strong> core features; achievements available; history/insights locked; ads may be technically enabled</li>
+          <li><strong>Lite:</strong> no ads, if advertising is active; achievements available; history remains locked</li>
+          <li><strong>Pro:</strong> no ads, if advertising is active; full access including history and insights</li>
+        </ul>
+        <p>
+          The exact scope of features may evolve.
+          The specific description shown in the app or store shall be decisive.
+        </p>
+
+        <h2>8. Prices</h2>
+        <p>
+          According to your current concept, the following prices currently apply:
+        </p>
+        <ul>
+          <li><strong>Lite:</strong> €1.99 per month</li>
+          <li><strong>Pro:</strong> €3.99 per month</li>
+        </ul>
+        <p>
+          All prices include statutory VAT where applicable.
+          Price changes for future periods remain reserved where legally permissible.
+        </p>
+
+        <h2>9. In-app purchases and billing</h2>
+        <p>
+          Paid plans or digital content may be billed via the relevant app store
+          (for example Google Play or Apple App Store).
+          In such cases, payment processing is handled by the respective platform provider.
+        </p>
+        <p>
+          The contractual terms and payment rules of the respective app store also apply.
+        </p>
+
+        <h2>10. Renewal, cancellation, withdrawal</h2>
+        <p>
+          Where subscriptions are offered, they usually renew automatically
+          unless cancelled in time via the relevant app store.
+        </p>
+        <p>
+          Management, cancellation and possible refunds are generally governed
+          by the rules of the respective store and the applicable statutory provisions.
+        </p>
+
+        <h2>11. Availability</h2>
+        <p>
+          We strive to keep the app available with as little interruption as possible.
+          However, uninterrupted availability is not guaranteed.
+          Maintenance, updates, technical issues or platform-related changes
+          may temporarily restrict use.
+        </p>
+
+        <h2>12. Changes to the app</h2>
+        <p>
+          We may further develop, adapt, expand or reasonably modify features,
+          provided that the overall nature of the app is not unreasonably impaired.
+        </p>
+
+        <h2>13. Acceptable use</h2>
+        <p>You agree to use the app only in accordance with applicable law.</p>
+        <p>In particular, the following are prohibited:</p>
+        <ul>
+          <li>misuse or unlawful use</li>
+          <li>manipulation of the app, its security mechanisms or systems</li>
+          <li>automated scraping or abusive large-scale use</li>
+          <li>reverse engineering unless expressly permitted by law</li>
+          <li>use in a way that infringes third-party rights</li>
+        </ul>
+
+        <h2>14. Intellectual property</h2>
+        <p>
+          The app, the website, the design, the content, texts, graphics, trademarks, logos,
+          software components and other elements are protected by copyright
+          and/or other applicable laws.
+        </p>
+        <p>
+          Unless expressly permitted, such content may not be reproduced,
+          distributed, modified or made publicly available.
+        </p>
+
+        <h2>15. User content</h2>
+        <p>
+          To the extent that you enter your own content such as task names,
+          display names or texts, you remain responsible for that content.
+          You warrant that you do not use unlawful content or content infringing third-party rights.
+        </p>
+
+        <h2>16. Liability</h2>
+        <p>
+          We are liable without limitation in cases of intent and gross negligence
+          as well as for damages resulting from injury to life, body or health.
+        </p>
+        <p>
+          In cases of slight negligence, we are only liable for breaches of essential contractual duties
+          and only up to the typical foreseeable damage.
+        </p>
+        <p>
+          Otherwise, liability is excluded to the extent permitted by law.
+        </p>
+
+        <h2>17. Warranty</h2>
+        <p>
+          The statutory warranty rights for digital products apply where applicable.
+        </p>
+
+        <h2>18. Term and termination</h2>
+        <p>
+          You may stop using the app at any time by discontinuing use
+          or removing it from your device.
+        </p>
+        <p>
+          We may restrict or terminate use
+          if serious violations of these terms occur.
+        </p>
+
+        <h2>19. Consumer dispute resolution</h2>
+        <p>
+          EU Commission platform for online dispute resolution:
+          <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener">
+            https://ec.europa.eu/consumers/odr/
+          </a>
+        </p>
+        <p>
+          We are neither obliged nor generally willing
+          to participate in dispute resolution proceedings before a consumer arbitration board.
+        </p>
+
+        <h2>20. Governing law</h2>
+        <p>
+          German law applies, excluding the UN Convention on Contracts for the International Sale of Goods,
+          unless mandatory consumer protection rules provide otherwise.
+        </p>
+
+        <h2>21. Changes to these terms</h2>
+        <p>
+          We may update these Terms of Use for valid reasons,
+          especially in case of legal changes, new features,
+          app developments or changes to technical processes.
+        </p>
+
+        <h2>22. Contact</h2>
+        <p>
+          Questions regarding these terms can be sent to:
+        </p>
+        <p>
+          <strong>[YOUR NAME / COMPANY]</strong><br>
+          Email: <a href="mailto:[YOUR EMAIL]">[YOUR EMAIL]</a>
+        </p>
+
+        <div class="link-row">
+          <a class="btn" href="index.html" id="enBackHome">Back to home</a>
+          <a class="btn" href="privacy.html" id="enPrivacyLink">Privacy Policy</a>
+          <a class="btn" href="impressum.html" id="enImprintLink">Imprint</a>
+        </div>
+
+        <div class="notice">
+          Note: Before publishing, replace the placeholder data
+          and review the text once more against your final store and business details.
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="foot">
+        <div>© <span id="year"></span> Health Gaming</div>
+        <div class="foot-links">
+          <a href="index.html" id="footerHome">Start</a>
+          <a href="privacy.html" id="footerPrivacy">Datenschutz</a>
+          <a href="terms.html" id="footerTerms">Nutzungsbedingungen</a>
+          <a href="impressum.html" id="footerImprint">Impressum</a>
+        </div>
       </div>
+    </div>
+  </footer>
 
-      <div class="note">Hinweis: Store-Käufe unterliegen zusätzlich den Bedingungen des jeweiligen App-Stores.</div>
-    </section>
-
-    <section class="card" data-i18n="en">
-      <h2>Terms of Use</h2>
-      <p class="muted"><strong>Provider</strong>: [NAME / COMPANY], [STREET + NO], [ZIP CITY], email:
-        <a href="mailto:[EMAIL]">[EMAIL]</a></p>
-
-      <h2>No Medical Advice</h2>
-      <p class="muted">Gamification/motivation tool; not medical advice, diagnosis, or treatment.</p>
-
-      <h2>Features &amp; No Account</h2>
-      <p class="muted">Goals/activities stored locally; no user account; no cloud sync currently.</p>
-
-      <h2>Subscription Plans and Services</h2>
-      <ul class="muted">
-        <li><strong>FREE:</strong> Core features; achievements unlocked; history/insights locked; ads may be technically possible.</li>
-        <li><strong>LITE (€1.99/month):</strong> No ads (if enabled later), achievements unlocked; history remains locked.</li>
-        <li><strong>PRO (€3.99/month):</strong> No ads (if enabled later), full access incl. history &amp; insights.</li>
-      </ul>
-      <p class="muted">Purchases may be processed by app stores; their terms apply.</p>
-
-      <h2>Billing, Renewal, Cancellation</h2>
-      <p class="muted">Auto-renew until you cancel in the store; refunds per store rules/statutory rights.</p>
-
-      <h2>Acceptable Use</h2>
-      <ul class="muted">
-        <li>illegal content</li><li>tampering with security/functionality</li><li>reverse engineering beyond legal allowances</li>
-        <li>automated scraping</li><li>infringement of third-party rights</li>
-      </ul>
-
-      <h2>Availability &amp; Changes</h2>
-      <p class="muted">Maintenance/updates may affect availability; features may change where reasonable.</p>
-
-      <h2>Liability</h2>
-      <p class="muted">Unlimited for intent/gross negligence; otherwise limited to typical foreseeable damage for essential duties;
-        life/body/health liability unaffected.</p>
-
-      <h2>Warranty</h2>
-      <p class="muted">Statutory warranty rights apply.</p>
-
-      <h2>Term &amp; Termination</h2>
-      <p class="muted">You can stop use anytime (uninstall). We may restrict/terminate for violations.</p>
-
-      <h2>Governing Law, Dispute Resolution</h2>
-      <p class="muted">German law (CISG excluded). EU ODR:
-        <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener">https://ec.europa.eu/consumers/odr/</a>.
-        We are not obliged and generally not willing to participate in consumer arbitration.</p>
-
-      <h2>Changes</h2>
-      <p class="muted">We may update these Terms for good cause (e.g., legal changes, new features) where reasonable.</p>
-
-      <h2>Contact</h2>
-      <p class="muted"><strong>[NAME / COMPANY]</strong> – [STREET + NO], [ZIP CITY], email: <a href="mailto:[EMAIL]">[EMAIL]</a></p>
-
-      <div class="links-row">
-        <a class="btn" href="privacy.html">Privacy Policy</a>
-        <a class="btn" href="impressum.html">Imprint</a>
-      </div>
-
-      <div class="note">Note: Store purchases are subject to the relevant app store’s terms.</div>
-    </section>
-  </div>
-</main>
-
-<footer>
-  <div class="wrap foot">
-    <div>© <span id="year"></span> Health Gaming</div>
-    <div><a href="impressum.html">Imprint</a> · <a href="privacy.html">Privacy</a> · <a href="index.html">Start</a></div>
-  </div>
-</footer>
-
-<script>
-  const html = document.documentElement;
-  const body = document.body;
-  const deBtn = document.getElementById('btn-de');
-  const enBtn = document.getElementById('btn-en');
-
-  function setLang(lang){
-    if (lang === 'en'){ body.classList.remove('show-de'); body.classList.add('show-en'); html.lang='en';
-      deBtn.classList.remove('chip--active'); deBtn.setAttribute('aria-pressed','false');
-      enBtn.classList.add('chip--active');    enBtn.setAttribute('aria-pressed','true');
-    } else { body.classList.remove('show-en'); body.classList.add('show-de'); html.lang='de';
-      enBtn.classList.remove('chip--active'); enBtn.setAttribute('aria-pressed','false');
-      deBtn.classList.add('chip--active');    deBtn.setAttribute('aria-pressed','true');
+  <script>
+    function getLangFromUrl() {
+      const params = new URLSearchParams(window.location.search);
+      const lang = params.get("lang");
+      return lang === "de" || lang === "en" ? lang : null;
     }
-    localStorage.setItem('hg_lang', lang);
-  }
-  deBtn.addEventListener('click', () => setLang('de'));
-  enBtn.addEventListener('click', () => setLang('en'));
 
-  // init
-  document.getElementById('year').textContent = new Date().getFullYear();
-  const saved = localStorage.getItem('hg_lang');
-  if (saved) setLang(saved);
-</script>
+    function getStoredLang() {
+      const lang = localStorage.getItem("hg_lang");
+      return lang === "de" || lang === "en" ? lang : null;
+    }
+
+    function getBrowserLang() {
+      const lang = (navigator.language || "").toLowerCase();
+      return lang.startsWith("de") ? "de" : "en";
+    }
+
+    function withLang(path, lang) {
+      return `${path}?lang=${lang}`;
+    }
+
+    function updateLinks(lang) {
+      const map = [
+        ["logoLink", "index.html"],
+        ["navHome", "index.html"],
+        ["navPrivacy", "privacy.html"],
+        ["navTerms", "terms.html"],
+        ["navImprint", "impressum.html"],
+        ["deBackHome", "index.html"],
+        ["dePrivacyLink", "privacy.html"],
+        ["deImprintLink", "impressum.html"],
+        ["enBackHome", "index.html"],
+        ["enPrivacyLink", "privacy.html"],
+        ["enImprintLink", "impressum.html"],
+        ["footerHome", "index.html"],
+        ["footerPrivacy", "privacy.html"],
+        ["footerTerms", "terms.html"],
+        ["footerImprint", "impressum.html"]
+      ];
+
+      map.forEach(([id, path]) => {
+        const el = document.getElementById(id);
+        if (el) {
+          el.setAttribute("href", withLang(path, lang));
+        }
+      });
+    }
+
+    function updateNavTexts(lang) {
+      const navHome = document.getElementById("navHome");
+      const navPrivacy = document.getElementById("navPrivacy");
+      const navTerms = document.getElementById("navTerms");
+      const navImprint = document.getElementById("navImprint");
+      const footerHome = document.getElementById("footerHome");
+      const footerPrivacy = document.getElementById("footerPrivacy");
+      const footerTerms = document.getElementById("footerTerms");
+      const footerImprint = document.getElementById("footerImprint");
+
+      if (lang === "de") {
+        if (navHome) navHome.textContent = "Start";
+        if (navPrivacy) navPrivacy.textContent = "Datenschutz";
+        if (navTerms) navTerms.textContent = "Nutzungsbedingungen";
+        if (navImprint) navImprint.textContent = "Impressum";
+        if (footerHome) footerHome.textContent = "Start";
+        if (footerPrivacy) footerPrivacy.textContent = "Datenschutz";
+        if (footerTerms) footerTerms.textContent = "Nutzungsbedingungen";
+        if (footerImprint) footerImprint.textContent = "Impressum";
+        document.title = "Nutzungsbedingungen – Health Gaming";
+      } else {
+        if (navHome) navHome.textContent = "Home";
+        if (navPrivacy) navPrivacy.textContent = "Privacy";
+        if (navTerms) navTerms.textContent = "Terms";
+        if (navImprint) navImprint.textContent = "Imprint";
+        if (footerHome) footerHome.textContent = "Home";
+        if (footerPrivacy) footerPrivacy.textContent = "Privacy";
+        if (footerTerms) footerTerms.textContent = "Terms";
+        if (footerImprint) footerImprint.textContent = "Imprint";
+        document.title = "Terms of Use – Health Gaming";
+      }
+    }
+
+    function setLang(lang, updateUrl = true) {
+      document.body.classList.remove("lang-de", "lang-en");
+      document.body.classList.add(`lang-${lang}`);
+      document.documentElement.lang = lang;
+
+      localStorage.setItem("hg_lang", lang);
+
+      const deBtn = document.getElementById("btn-de");
+      const enBtn = document.getElementById("btn-en");
+
+      deBtn.classList.toggle("active", lang === "de");
+      enBtn.classList.toggle("active", lang === "en");
+
+      updateNavTexts(lang);
+      updateLinks(lang);
+
+      if (updateUrl) {
+        const url = new URL(window.location.href);
+        url.searchParams.set("lang", lang);
+        window.history.replaceState({}, "", url.toString());
+      }
+    }
+
+    document.getElementById("btn-de").addEventListener("click", () => setLang("de"));
+    document.getElementById("btn-en").addEventListener("click", () => setLang("en"));
+
+    const initialLang =
+      getLangFromUrl() ||
+      getStoredLang() ||
+      getBrowserLang();
+
+    setLang(initialLang, true);
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
