@@ -4,10 +4,17 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Health Gaming – Track. Level Up. Repeat.</title>
-  <meta name="description" content="Health Gaming – set goals, log activities, earn XP and gamify your habits." />
+  <meta
+    name="description"
+    content="Health Gaming – Setze Ziele, logge Aktivitäten, verdiene XP und gamifiziere deine Gewohnheiten."
+  />
   <meta name="color-scheme" content="dark light" />
+
   <meta property="og:title" content="Health Gaming – Track. Level Up. Repeat." />
-  <meta property="og:description" content="Goals, XP, streaks and quests. Turn your health into a game." />
+  <meta
+    property="og:description"
+    content="Ziele, XP, Streaks und Quests. Mach deine Gesundheit zu einem Spiel."
+  />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://niti0225.github.io/HealthGaming/" />
 
@@ -16,7 +23,6 @@
       --bg:#0b0f14;
       --bg-2:#0f141c;
       --card:#111620;
-      --card-2:#151c28;
       --muted:#98a2b3;
       --text:#e6e9ef;
       --purple:#8b5cf6;
@@ -30,12 +36,13 @@
 
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
+
     body{
       margin:0;
       background:
         radial-gradient(1100px 800px at 10% -10%, rgba(34,211,238,.10), transparent 60%),
         radial-gradient(900px 720px at 110% 0%, rgba(139,92,246,.12), transparent 60%),
-        linear-gradient(180deg, var(--bg), var(--bg-2));
+        linear-gradient(180deg, var(--bg), #10151d);
       color:var(--text);
       font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;
     }
@@ -69,6 +76,7 @@
       letter-spacing:.2px;
       color:var(--text);
       white-space:nowrap;
+      text-decoration:none;
     }
 
     .dot{
@@ -102,7 +110,8 @@
       color:var(--text);
       text-decoration:none;
       font-weight:700;
-      transition:.18s ease;
+      transition:transform .18s ease, border-color .18s ease, background .18s ease;
+      cursor:pointer;
     }
 
     .btn:hover{
@@ -400,7 +409,6 @@
         --bg:#f7f8fb;
         --bg-2:#eef2f8;
         --card:#ffffff;
-        --card-2:#ffffff;
         --text:#0b1220;
         --muted:#667085;
         --line:#e6e9ef;
@@ -451,8 +459,8 @@
           <a class="btn primary" href="privacy.html" id="privacyNavLink" data-i18n="navPrivacy">Privacy</a>
 
           <div class="lang-switch" aria-label="Language switch">
-            <button id="langDe" type="button">DE</button>
-            <button id="langEn" type="button">EN</button>
+            <button id="langDe" type="button" aria-pressed="false">DE</button>
+            <button id="langEn" type="button" aria-pressed="false">EN</button>
           </div>
         </div>
       </nav>
@@ -663,6 +671,13 @@
   <script>
     const translations = {
       de: {
+        pageTitle: "Health Gaming – Track. Level Up. Repeat.",
+        pageDescription:
+          "Health Gaming – Setze Ziele, logge Aktivitäten, verdiene XP und gamifiziere deine Gewohnheiten.",
+        ogTitle: "Health Gaming – Track. Level Up. Repeat.",
+        ogDescription:
+          "Ziele, XP, Streaks und Quests. Mach deine Gesundheit zu einem Spiel.",
+
         navFeatures: "Features",
         navPricing: "Preise",
         navDownload: "Download",
@@ -690,20 +705,27 @@
           "Eine klare Health-App mit spielerischer Motivation, einfachem Logging und ruhigem Design.",
 
         feature1Title: "🎯 Ziele & XP",
-        feature1Text: "Setze tägliche Ziele. Jede Aktivität gibt XP. Deine Gesundheit wird zu einem motivierenden Gameplay.",
+        feature1Text:
+          "Setze tägliche Ziele. Jede Aktivität gibt XP. Deine Gesundheit wird zu einem motivierenden Gameplay.",
         feature2Title: "📝 Manuelles Tracking",
-        feature2Text: "Keine Sensoren nötig. Trage einfach ein, was du gemacht hast, wie viel und wann.",
+        feature2Text:
+          "Keine Sensoren nötig. Trage einfach ein, was du gemacht hast, wie viel und wann.",
         feature3Title: "🏅 Achievements",
-        feature3Text: "Schalte Badges, Streaks und Belohnungen für Meilensteine frei.",
+        feature3Text:
+          "Schalte Badges, Streaks und Belohnungen für Meilensteine frei.",
         feature4Title: "📈 Verlauf & Insights",
-        feature4Text: "Behalte deinen kurzfristigen Fortschritt und deine langfristige Konstanz im Blick.",
+        feature4Text:
+          "Behalte deinen kurzfristigen Fortschritt und deine langfristige Konstanz im Blick.",
         feature5Title: "🎨 Skins & Personalisierung",
-        feature5Text: "Schalte Gradients, Styles und visuelle Belohnungen mit höheren Levels frei.",
+        feature5Text:
+          "Schalte Gradients, Styles und visuelle Belohnungen mit höheren Levels frei.",
         feature6Title: "🔒 Lokal zuerst",
-        feature6Text: "Die Kernnutzung funktioniert ohne erzwungene Cloud-Synchronisation oder Kontoerstellung.",
+        feature6Text:
+          "Die Kernnutzung funktioniert ohne erzwungene Cloud-Synchronisation oder Kontoerstellung.",
 
         pricingTitle: "Preise",
-        pricingCopy: "Klare Planstruktur für kostenlose Nutzung, werbefreie Nutzung und Vollzugriff.",
+        pricingCopy:
+          "Klare Planstruktur für kostenlose Nutzung, werbefreie Nutzung und Vollzugriff.",
         perMonth: "/Monat",
 
         free1: "Kernfunktionen",
@@ -733,6 +755,13 @@
       },
 
       en: {
+        pageTitle: "Health Gaming – Track. Level Up. Repeat.",
+        pageDescription:
+          "Health Gaming – Set goals, log activities, earn XP and gamify your habits.",
+        ogTitle: "Health Gaming – Track. Level Up. Repeat.",
+        ogDescription:
+          "Goals, XP, streaks and quests. Turn your health into a game.",
+
         navFeatures: "Features",
         navPricing: "Pricing",
         navDownload: "Download",
@@ -760,17 +789,23 @@
           "A clean health app experience with gamified motivation, simple logging and calm design.",
 
         feature1Title: "🎯 Goals & XP",
-        feature1Text: "Set daily goals. Every activity gives XP. Your health becomes a rewarding gameplay loop.",
+        feature1Text:
+          "Set daily goals. Every activity gives XP. Your health becomes a rewarding gameplay loop.",
         feature2Title: "📝 Manual tracking",
-        feature2Text: "No sensors required. Just log what you did, how much and when.",
+        feature2Text:
+          "No sensors required. Just log what you did, how much and when.",
         feature3Title: "🏅 Achievements",
-        feature3Text: "Unlock badges, streaks and milestone rewards over time.",
+        feature3Text:
+          "Unlock badges, streaks and milestone rewards over time.",
         feature4Title: "📈 History & insights",
-        feature4Text: "Review your short-term progress and long-term consistency.",
+        feature4Text:
+          "Review your short-term progress and long-term consistency.",
         feature5Title: "🎨 Skins & personalization",
-        feature5Text: "Unlock gradients, styles and visual rewards as you level up.",
+        feature5Text:
+          "Unlock gradients, styles and visual rewards as you level up.",
         feature6Title: "🔒 Local-first",
-        feature6Text: "Core app usage works without forcing cloud sync or account creation.",
+        feature6Text:
+          "Core app usage works without forcing cloud sync or account creation.",
 
         pricingTitle: "Pricing",
         pricingCopy:
@@ -804,15 +839,22 @@
       }
     };
 
+    const metaDescription = document.querySelector('meta[name="description"]');
+    const metaOgTitle = document.querySelector('meta[property="og:title"]');
+    const metaOgDescription = document.querySelector('meta[property="og:description"]');
+
+    function normalizeLang(lang) {
+      return lang === "de" || lang === "en" ? lang : "en";
+    }
+
     function getLangFromUrl() {
       const params = new URLSearchParams(window.location.search);
-      const lang = params.get("lang");
-      return lang === "de" || lang === "en" ? lang : null;
+      return normalizeLang(params.get("lang"));
     }
 
     function getStoredLang() {
       const lang = localStorage.getItem("hg_lang");
-      return lang === "de" || lang === "en" ? lang : null;
+      return lang ? normalizeLang(lang) : null;
     }
 
     function getBrowserLang() {
@@ -825,7 +867,7 @@
     }
 
     function updateLinkedPages(lang) {
-      const ids = [
+      const links = [
         ["privacyNavLink", "privacy.html"],
         ["termsHeroLink", "terms.html"],
         ["footerPrivacy", "privacy.html"],
@@ -833,40 +875,54 @@
         ["footerImprint", "impressum.html"]
       ];
 
-      ids.forEach(([id, path]) => {
+      links.forEach(([id, path]) => {
         const el = document.getElementById(id);
-        if (el) el.setAttribute("href", buildPageUrl(path, lang));
+        if (el) {
+          el.href = buildPageUrl(path, lang);
+        }
       });
     }
 
-    function applyTranslations(lang) {
+    function updateMeta(t) {
+      document.title = t.pageTitle;
+      if (metaDescription) metaDescription.setAttribute("content", t.pageDescription);
+      if (metaOgTitle) metaOgTitle.setAttribute("content", t.ogTitle);
+      if (metaOgDescription) metaOgDescription.setAttribute("content", t.ogDescription);
+    }
+
+    function updateText(lang) {
       const t = translations[lang] || translations.en;
 
       document.documentElement.lang = lang;
       localStorage.setItem("hg_lang", lang);
 
-      document.querySelectorAll("[data-i18n]").forEach(el => {
+      document.querySelectorAll("[data-i18n]").forEach((el) => {
         const key = el.getAttribute("data-i18n");
-        if (t[key]) el.textContent = t[key];
+        if (key && t[key]) {
+          el.textContent = t[key];
+        }
       });
 
-      document.title =
-        lang === "de"
-          ? "Health Gaming – Track. Level Up. Repeat."
-          : "Health Gaming – Track. Level Up. Repeat.";
-
+      updateMeta(t);
       updateLinkedPages(lang);
 
-      document.getElementById("langDe").classList.toggle("active", lang === "de");
-      document.getElementById("langEn").classList.toggle("active", lang === "en");
+      const btnDe = document.getElementById("langDe");
+      const btnEn = document.getElementById("langEn");
+
+      btnDe.classList.toggle("active", lang === "de");
+      btnEn.classList.toggle("active", lang === "en");
+
+      btnDe.setAttribute("aria-pressed", String(lang === "de"));
+      btnEn.setAttribute("aria-pressed", String(lang === "en"));
     }
 
     function setLang(lang, updateUrl = true) {
-      applyTranslations(lang);
+      const safeLang = normalizeLang(lang);
+      updateText(safeLang);
 
       if (updateUrl) {
         const url = new URL(window.location.href);
-        url.searchParams.set("lang", lang);
+        url.searchParams.set("lang", safeLang);
         window.history.replaceState({}, "", url.toString());
       }
     }
@@ -875,7 +931,7 @@
     document.getElementById("langEn").addEventListener("click", () => setLang("en"));
 
     const initialLang =
-      getLangFromUrl() ||
+      new URLSearchParams(window.location.search).get("lang") ||
       getStoredLang() ||
       getBrowserLang();
 
