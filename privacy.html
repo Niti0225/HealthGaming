@@ -3,8 +3,11 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Datenschutz / Privacy – Health Gaming</title>
-  <meta name="description" content="Datenschutzerklärung und Privacy Policy für Health Gaming." />
+  <title>Datenschutzerklärung – Health Gaming</title>
+  <meta
+    name="description"
+    content="Datenschutzerklärung für Health Gaming. Erfahre, welche Daten verarbeitet werden, wie die App funktioniert und welche Rechte du hast."
+  />
   <meta name="color-scheme" content="dark light" />
 
   <style>
@@ -26,6 +29,7 @@
 
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
+
     body{
       margin:0;
       background:
@@ -70,6 +74,7 @@
       font-weight:800;
       color:var(--text);
       white-space:nowrap;
+      text-decoration:none;
     }
 
     .dot{
@@ -117,11 +122,6 @@
     .btn.primary{
       background:linear-gradient(135deg, rgba(34,211,238,.14), rgba(139,92,246,.16));
       box-shadow:0 0 0 3px var(--ring);
-    }
-
-    .btn.active{
-      border-color:var(--teal);
-      box-shadow:0 0 0 2px rgba(34,211,238,.18);
     }
 
     .lang-switch{
@@ -348,13 +348,13 @@
 
         <div class="navlinks">
           <a class="btn" href="index.html" id="navHome">Start</a>
-          <a class="btn primary" href="privacy.html" id="navPrivacy">Privacy</a>
-          <a class="btn" href="terms.html" id="navTerms">Terms</a>
+          <a class="btn primary" href="privacy.html" id="navPrivacy">Datenschutz</a>
+          <a class="btn" href="terms.html" id="navTerms">Nutzungsbedingungen</a>
           <a class="btn" href="impressum.html" id="navImprint">Impressum</a>
 
           <div class="lang-switch" aria-label="Language switch">
-            <button id="btn-de" type="button">DE</button>
-            <button id="btn-en" type="button">EN</button>
+            <button id="btn-de" type="button" aria-pressed="false">DE</button>
+            <button id="btn-en" type="button" aria-pressed="false">EN</button>
           </div>
         </div>
       </div>
@@ -796,8 +796,8 @@
         <div>© <span id="year"></span> Health Gaming</div>
         <div class="foot-links">
           <a href="index.html" id="footerHome">Start</a>
-          <a href="privacy.html" id="footerPrivacy">Privacy</a>
-          <a href="terms.html" id="footerTerms">Terms</a>
+          <a href="privacy.html" id="footerPrivacy">Datenschutz</a>
+          <a href="terms.html" id="footerTerms">Nutzungsbedingungen</a>
           <a href="impressum.html" id="footerImprint">Impressum</a>
         </div>
       </div>
@@ -805,15 +805,49 @@
   </footer>
 
   <script>
+    const copy = {
+      de: {
+        title: "Datenschutzerklärung – Health Gaming",
+        description:
+          "Datenschutzerklärung für Health Gaming. Erfahre, welche Daten verarbeitet werden, wie die App funktioniert und welche Rechte du hast.",
+        navHome: "Start",
+        navPrivacy: "Datenschutz",
+        navTerms: "Nutzungsbedingungen",
+        navImprint: "Impressum",
+        footerHome: "Start",
+        footerPrivacy: "Datenschutz",
+        footerTerms: "Nutzungsbedingungen",
+        footerImprint: "Impressum"
+      },
+      en: {
+        title: "Privacy Policy – Health Gaming",
+        description:
+          "Privacy Policy for Health Gaming. Learn which data may be processed, how the app works and which rights you have.",
+        navHome: "Home",
+        navPrivacy: "Privacy",
+        navTerms: "Terms",
+        navImprint: "Imprint",
+        footerHome: "Home",
+        footerPrivacy: "Privacy",
+        footerTerms: "Terms",
+        footerImprint: "Imprint"
+      }
+    };
+
+    const metaDescription = document.querySelector('meta[name="description"]');
+
+    function normalizeLang(lang) {
+      return lang === "de" || lang === "en" ? lang : "en";
+    }
+
     function getLangFromUrl() {
       const params = new URLSearchParams(window.location.search);
-      const lang = params.get("lang");
-      return lang === "de" || lang === "en" ? lang : null;
+      return normalizeLang(params.get("lang"));
     }
 
     function getStoredLang() {
       const lang = localStorage.getItem("hg_lang");
-      return lang === "de" || lang === "en" ? lang : null;
+      return lang ? normalizeLang(lang) : null;
     }
 
     function getBrowserLang() {
@@ -847,57 +881,52 @@
       map.forEach(([id, path]) => {
         const el = document.getElementById(id);
         if (el) {
-          el.setAttribute("href", withLang(path, lang));
+          el.href = withLang(path, lang);
         }
       });
     }
 
-    function updateNavTexts(lang) {
-      const navHome = document.getElementById("navHome");
-      const navPrivacy = document.getElementById("navPrivacy");
-      const navTerms = document.getElementById("navTerms");
-      const navImprint = document.getElementById("navImprint");
-      const footerHome = document.getElementById("footerHome");
-      const footerImprint = document.getElementById("footerImprint");
+    function updateTexts(lang) {
+      const t = copy[lang] || copy.en;
 
-      if (lang === "de") {
-        if (navHome) navHome.textContent = "Start";
-        if (navPrivacy) navPrivacy.textContent = "Datenschutz";
-        if (navTerms) navTerms.textContent = "Nutzungsbedingungen";
-        if (navImprint) navImprint.textContent = "Impressum";
-        if (footerHome) footerHome.textContent = "Start";
-        if (footerImprint) footerImprint.textContent = "Impressum";
-        document.title = "Datenschutzerklärung – Health Gaming";
-      } else {
-        if (navHome) navHome.textContent = "Home";
-        if (navPrivacy) navPrivacy.textContent = "Privacy";
-        if (navTerms) navTerms.textContent = "Terms";
-        if (navImprint) navImprint.textContent = "Imprint";
-        if (footerHome) footerHome.textContent = "Home";
-        if (footerImprint) footerImprint.textContent = "Imprint";
-        document.title = "Privacy Policy – Health Gaming";
-      }
+      document.title = t.title;
+      if (metaDescription) metaDescription.setAttribute("content", t.description);
+
+      document.getElementById("navHome").textContent = t.navHome;
+      document.getElementById("navPrivacy").textContent = t.navPrivacy;
+      document.getElementById("navTerms").textContent = t.navTerms;
+      document.getElementById("navImprint").textContent = t.navImprint;
+
+      document.getElementById("footerHome").textContent = t.footerHome;
+      document.getElementById("footerPrivacy").textContent = t.footerPrivacy;
+      document.getElementById("footerTerms").textContent = t.footerTerms;
+      document.getElementById("footerImprint").textContent = t.footerImprint;
     }
 
     function setLang(lang, updateUrl = true) {
-      document.body.classList.remove("lang-de", "lang-en");
-      document.body.classList.add(`lang-${lang}`);
-      document.documentElement.lang = lang;
+      const safeLang = normalizeLang(lang);
 
-      localStorage.setItem("hg_lang", lang);
+      document.body.classList.remove("lang-de", "lang-en");
+      document.body.classList.add(`lang-${safeLang}`);
+      document.documentElement.lang = safeLang;
+
+      localStorage.setItem("hg_lang", safeLang);
 
       const deBtn = document.getElementById("btn-de");
       const enBtn = document.getElementById("btn-en");
 
-      deBtn.classList.toggle("active", lang === "de");
-      enBtn.classList.toggle("active", lang === "en");
+      deBtn.classList.toggle("active", safeLang === "de");
+      enBtn.classList.toggle("active", safeLang === "en");
 
-      updateNavTexts(lang);
-      updateLinks(lang);
+      deBtn.setAttribute("aria-pressed", String(safeLang === "de"));
+      enBtn.setAttribute("aria-pressed", String(safeLang === "en"));
+
+      updateTexts(safeLang);
+      updateLinks(safeLang);
 
       if (updateUrl) {
         const url = new URL(window.location.href);
-        url.searchParams.set("lang", lang);
+        url.searchParams.set("lang", safeLang);
         window.history.replaceState({}, "", url.toString());
       }
     }
@@ -906,7 +935,7 @@
     document.getElementById("btn-en").addEventListener("click", () => setLang("en"));
 
     const initialLang =
-      getLangFromUrl() ||
+      new URLSearchParams(window.location.search).get("lang") ||
       getStoredLang() ||
       getBrowserLang();
 
