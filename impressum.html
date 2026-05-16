@@ -26,6 +26,7 @@
 
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
+
     body{
       margin:0;
       background:
@@ -42,42 +43,45 @@
     .wrap{
       max-width:var(--max);
       margin:0 auto;
-      padding:0 20px;
+      padding:0 16px;
     }
 
     header{
       position:sticky;
       top:0;
       z-index:40;
-      background:rgba(11,15,20,.74);
+      background:rgba(11,15,20,.78);
       backdrop-filter:blur(10px);
+      -webkit-backdrop-filter:blur(10px);
       border-bottom:1px solid var(--line);
     }
 
     .nav{
-      min-height:68px;
+      min-height:56px;
       display:flex;
       align-items:center;
-      gap:14px;
+      gap:10px;
       flex-wrap:wrap;
-      padding:10px 0;
+      padding:8px 0;
     }
 
     .logo{
       display:flex;
       align-items:center;
-      gap:12px;
+      gap:10px;
       font-weight:800;
       color:var(--text);
       white-space:nowrap;
+      font-size:.98rem;
+      text-decoration:none;
     }
 
     .dot{
-      width:12px;
-      height:12px;
+      width:10px;
+      height:10px;
       border-radius:50%;
       background:linear-gradient(135deg,var(--teal),var(--purple));
-      box-shadow:0 0 0 4px var(--ring);
+      box-shadow:0 0 0 3px var(--ring);
       flex:0 0 auto;
     }
 
@@ -85,7 +89,7 @@
       margin-left:auto;
       display:flex;
       align-items:center;
-      gap:10px;
+      gap:8px;
       flex-wrap:wrap;
       justify-content:flex-end;
     }
@@ -94,15 +98,17 @@
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      gap:8px;
-      min-height:42px;
-      padding:10px 14px;
-      border-radius:12px;
+      gap:6px;
+      min-height:36px;
+      padding:7px 11px;
+      border-radius:10px;
       background:#0f1520;
       border:1px solid #2a3650;
       color:var(--text);
       text-decoration:none;
       font-weight:700;
+      font-size:.92rem;
+      line-height:1;
       transition:.18s ease;
       cursor:pointer;
     }
@@ -116,7 +122,7 @@
 
     .btn.primary{
       background:linear-gradient(135deg, rgba(34,211,238,.14), rgba(139,92,246,.16));
-      box-shadow:0 0 0 3px var(--ring);
+      box-shadow:0 0 0 2px var(--ring);
     }
 
     .btn.active{
@@ -127,8 +133,8 @@
     .lang-switch{
       display:inline-flex;
       align-items:center;
-      gap:6px;
-      padding:4px;
+      gap:4px;
+      padding:3px;
       border-radius:999px;
       border:1px solid #2a3650;
       background:#0f1520;
@@ -139,10 +145,12 @@
       background:transparent;
       color:var(--text);
       font-weight:800;
-      padding:8px 12px;
+      padding:6px 10px;
       border-radius:999px;
       cursor:pointer;
       transition:.18s ease;
+      font-size:.88rem;
+      line-height:1;
     }
 
     .lang-switch button.active{
@@ -151,7 +159,7 @@
     }
 
     main{
-      padding:34px 0 44px;
+      padding:28px 0 44px;
     }
 
     .hero{
@@ -282,14 +290,41 @@
     }
 
     @media (max-width: 760px){
+      .wrap{
+        padding:0 12px;
+      }
+
       .nav{
+        min-height:unset;
         align-items:flex-start;
+        gap:8px;
+        padding:8px 0;
+      }
+
+      .logo{
+        font-size:.94rem;
       }
 
       .navlinks{
         margin-left:0;
         width:100%;
         justify-content:flex-start;
+        gap:6px;
+      }
+
+      .btn{
+        min-height:34px;
+        padding:6px 10px;
+        font-size:.86rem;
+      }
+
+      .lang-switch{
+        padding:2px;
+      }
+
+      .lang-switch button{
+        padding:6px 9px;
+        font-size:.84rem;
       }
 
       .hero-card,
