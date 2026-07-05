@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#0e0e12">
+    <meta name="description" content="GrindMode ist ein lokaler, gamifizierter Health- und Habit-Tracker fuer Ziele, To-dos, XP, Streaks und Fortschritt ohne Konto und ohne Tracking.">
+    <meta property="og:title" content="GrindMode - Local-first Health & Habit Tracker">
+    <meta property="og:description" content="Baue gesunde Routinen mit XP, Streaks, Tageszielen und lokalen Backups. Kein Konto, kein Tracking, keine Cloud-Pflicht.">
+    <meta property="og:type" content="website">
+    <title>GrindMode - Health, Habits & XP</title>
+    <link rel="icon" href="app-icon.png">
+    <link rel="apple-touch-icon" href="app-icon.png">
+    <link rel="stylesheet" href="site.css">
+    <script src="site.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header" data-header>
+      <a class="brand" href="index.html" aria-label="GrindMode Startseite">
+        <img src="app-icon.png" alt="" width="38" height="38">
+        <span>GrindMode</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="Navigation oeffnen" aria-expanded="false" data-nav-toggle>
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="site-nav" data-nav>
+        <a href="#features">Features</a>
+        <a href="#premium">Premium</a>
+        <a href="#privacy">Datenschutz</a>
+        <a href="faq.html">FAQ</a>
+        <a class="nav-cta" href="#download">App vormerken</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero section-pad">
+        <div class="hero-copy reveal">
+          <p class="eyebrow">Local-first. Gamified. Ohne Tracking.</p>
+          <h1>Mach gesunde Routinen messbar und motivierend.</h1>
+          <p class="hero-text">
+            GrindMode verbindet Health-Ziele, To-dos, XP, Level, Streaks und lokale Backups in einer App,
+            die Fortschritt belohnt, ohne ein Konto oder Cloud-Zwang vorauszusetzen.
+          </p>
+          <div class="hero-actions" id="download">
+            <a class="button primary" href="#app-status">Status ansehen</a>
+            <a class="button ghost" href="privacy.html">Datenschutz lesen</a>
+          </div>
+          <div class="trust-strip" aria-label="Vertrauensmerkmale">
+            <span>Kein Firebase</span>
+            <span>Kein Tracking</span>
+            <span>Lokale Daten</span>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal" data-tilt>
+          <div class="orbital-ring ring-one"></div>
+          <div class="orbital-ring ring-two"></div>
+          <div class="phone" aria-label="App-Mockup von GrindMode">
+            <div class="phone-top">
+              <span class="speaker"></span>
+            </div>
+            <div class="phone-screen">
+              <div class="app-bar">
+                <img src="app-icon.png" alt="" width="34" height="34">
+                <div>
+                  <strong>GrindMode</strong>
+                  <span>Daily Focus</span>
+                </div>
+              </div>
+              <div class="score-card">
+                <span>Health Score</span>
+                <strong data-count="87">87%</strong>
+                <div class="meter"><i style="width: 87%"></i></div>
+              </div>
+              <div class="mini-grid">
+                <div><span>Steps</span><strong>8.4k</strong></div>
+                <div><span>Water</span><strong>1.8 L</strong></div>
+                <div><span>Sleep</span><strong>7h</strong></div>
+              </div>
+              <div class="task-card done">
+                <span></span>
+                <p>Workout erledigt</p>
+                <strong>+120 XP</strong>
+              </div>
+              <div class="task-card">
+                <span></span>
+                <p>Deep Work</p>
+                <strong>+80 XP</strong>
+              </div>
+              <div class="level-bar">
+                <div><span>Level 12</span><b>2.450 XP</b></div>
+                <div class="meter"><i style="width: 64%"></i></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="status-band reveal" id="app-status">
+        <div>
+          <span class="status-dot"></span>
+          <strong>Aktueller App-Stand</strong>
+          <p>Lokale Speicherung, kein Konto, kein Tracking, keine aktive Werbung, keine aktive Store-Abrechnung.</p>
+        </div>
+        <a href="terms.html">Nutzungsbedingungen</a>
+      </section>
+
+      <section class="section-pad" id="features">
+        <div class="section-head reveal">
+          <p class="eyebrow">Features</p>
+          <h2>Alles fuer taegliche Motivation, ohne Datenballast.</h2>
+          <p>Die App ist auf wiederholte Nutzung gebaut: schnelle Eingaben, klare Fortschrittsanzeige und Gamification, die nicht im Weg steht.</p>
+        </div>
+        <div class="feature-grid">
+          <article class="feature-card reveal">
+            <span class="icon">XP</span>
+            <h3>XP & Level</h3>
+            <p>Belohne Aufgaben, Tagesziele und perfekte Tage mit Fortschritt, Leveln und sichtbarer Motivation.</p>
+          </article>
+          <article class="feature-card reveal">
+            <span class="icon">ST</span>
+            <h3>Streaks & Ziele</h3>
+            <p>Tracke Schritte, Wasser, Schlaf und Gewohnheiten mit Tagesfokus und klaren Zielwerten.</p>
+          </article>
+          <article class="feature-card reveal">
+            <span class="icon">TD</span>
+            <h3>To-dos mit Gewichtung</h3>
+            <p>Kleine, mittlere, grosse und epische Tasks geben unterschiedlich XP und machen Prioritaeten sichtbar.</p>
+          </article>
+          <article class="feature-card reveal">
+            <span class="icon">BK</span>
+            <h3>Lokaler Export</h3>
+            <p>Export und Import laufen lokal als JSON. Keine Cloud-Pflicht, kein Konto und keine versteckten Analyse-Uploads.</p>
+          </article>
+          <article class="feature-card reveal">
+            <span class="icon">PR</span>
+            <h3>Privacy by design</h3>
+            <p>Android Release ohne Netzwerkrechte, ohne Firebase, ohne aktive Ads und mit deaktiviertem Auto-Backup.</p>
+          </article>
+          <article class="feature-card reveal">
+            <span class="icon">AV</span>
+            <h3>Profil & Avatar</h3>
+            <p>Personalisierung, Skins und Achievements geben der App mehr Spielgefuehl, ohne Social-Zwang.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section-pad split" id="premium">
+        <div class="section-head reveal">
+          <p class="eyebrow">Premium-Roadmap</p>
+          <h2>Premium ist vorbereitet, aber noch nicht aktiv abgerechnet.</h2>
+          <p>
+            Free/Lite/Pro existieren aktuell als technische Platzhalter und lokale Testlogik.
+            Echte In-App-Kaeufe, Preise und Laufzeiten werden erst spaeter ueber Apple/Google aktiviert.
+          </p>
+        </div>
+        <div class="plans reveal">
+          <article>
+            <span>Free</span>
+            <strong>Start</strong>
+            <p>Basisfunktionen, Ziele, Tasks und lokaler Fortschritt.</p>
+          </article>
+          <article class="highlight">
+            <span>Lite</span>
+            <strong>Fokus</strong>
+            <p>Geplant: weniger Ablenkung, Achievements und Komfortfunktionen.</p>
+          </article>
+          <article>
+            <span>Pro</span>
+            <strong>Alles</strong>
+            <p>Geplant: History, Insights und volle Fortschrittsauswertung.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section-pad privacy-section" id="privacy">
+        <div class="section-head reveal">
+          <p class="eyebrow">Vertrauen</p>
+          <h2>Gesundheitsnahe Daten verdienen Zurueckhaltung.</h2>
+          <p>GrindMode sammelt keine Daten fuer Werbung oder Tracking. Was du eintraegst, bleibt lokal auf deinem Geraet, solange du es nicht selbst exportierst.</p>
+        </div>
+        <div class="privacy-grid">
+          <div class="privacy-card reveal">
+            <strong>Keine Drittanbieter-Analyse</strong>
+            <p>Kein Firebase, kein Analytics-SDK, keine aktiven Werbe-SDKs im aktuellen Stand.</p>
+          </div>
+          <div class="privacy-card reveal">
+            <strong>Lokaler Export/Import</strong>
+            <p>Backups sind lokale JSON-Dateien. Premium-/Debug-Flags werden nicht als Zahlungsnachweis exportiert.</p>
+          </div>
+          <div class="privacy-card reveal">
+            <strong>App-Store-Angaben vorbereitet</strong>
+            <p>Die Website beschreibt lokale Speicherung, Berechtigungen, Werbung, In-App-Kaeufe und SDKs transparent.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-pad faq-preview">
+        <div class="section-head reveal">
+          <p class="eyebrow">Support</p>
+          <h2>Fragen, bevor sie Reibung erzeugen.</h2>
+        </div>
+        <div class="faq-list reveal">
+          <details>
+            <summary>Ist GrindMode medizinische Beratung?</summary>
+            <p>Nein. Die App ist ein Motivations- und Tracking-Tool und ersetzt keine medizinische Beratung, Diagnose oder Behandlung.</p>
+          </details>
+          <details>
+            <summary>Werden meine Daten hochgeladen?</summary>
+            <p>Aktuell nein. Die App arbeitet lokal ohne Konto, Server-Sync, Tracking oder aktive Werbe-SDKs.</p>
+          </details>
+          <details>
+            <summary>Kann ich die App schon kaufen?</summary>
+            <p>Aktuell ist echte Store-Abrechnung nicht aktiv. Premium-Modelle sind als Roadmap und technische Platzhalter gekennzeichnet.</p>
+          </details>
+        </div>
+        <div class="center-actions">
+          <a class="button ghost" href="faq.html">Alle FAQ ansehen</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div>
+        <a class="brand footer-brand" href="index.html">
+          <img src="app-icon.png" alt="" width="34" height="34">
+          <span>GrindMode</span>
+        </a>
+        <p>Local-first Health & Habit Tracking mit XP, Streaks und Fokus.</p>
+      </div>
+      <nav aria-label="Footer">
+        <a href="privacy.html">Datenschutz</a>
+        <a href="terms.html">Nutzungsbedingungen</a>
+        <a href="imprint.html">Impressum</a>
+        <a href="faq.html">FAQ</a>
+      </nav>
+    </footer>
+  </body>
+</html>
